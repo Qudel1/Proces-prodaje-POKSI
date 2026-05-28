@@ -1,0 +1,676 @@
+object fraRezervacija: TfraRezervacija
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 10.000000000000000000
+      TabOrder = 0
+      object btnZatvori: TButton
+        Align = Left
+        Size.Width = 36.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'X'
+        Font.Size = 16.000000000000000000
+        TabOrder = 0
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 246.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Detalji rezervacije'
+        Font.Style = [fsBold]
+        Font.Size = 18.000000000000000000
+        FontColor = xFF000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      TabOrder = 2
+      object rectFooterBg: TRectangle
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFF1C1C2E
+        Stroke.Kind = None
+      end
+      object btnPlati: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Plati'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        FontColor = xFFFFFFFF
+        TabOrder = 0
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 708.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 1
+
+      object lblLicniPodaci: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Li'#269'ni podaci'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectOdaberi: TRectangle
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFF5F5F5
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblOdaberi: TLabel
+          Align = Left
+          Margins.Left = 16.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Odaberi'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF888888
+          TextSettings.VertAlign = Center
+        end
+        object lblOdaberiArrow: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 20.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = #8250
+          Font.Size = 20.000000000000000000
+          FontColor = xFF888888
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object lblNazivObjekta: TLabel
+        Align = Top
+        Margins.Top = 14.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Naziv Objekta'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectNazivObjekta: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblNazivObjektaVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Pension Poksi'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object lblLokacija: TLabel
+        Align = Top
+        Margins.Top = 14.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Lokacija'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectLokacija: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblLokacijaVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Kragujevac'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblOtvoriMapu: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 90.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Otvori mapu'
+          Font.Size = 12.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object lblIDKorisnika: TLabel
+        Align = Top
+        Margins.Top = 14.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'ID korisnika'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectIDKorisnika: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblIDVal: TLabel
+          Align = Left
+          Margins.Left = 16.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = '1sp87t6s7ps'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF888888
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object lblKontakt: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Kontakt'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectEmail: TRectangle
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblEmailVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'peta***@gmail.com'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectPhone: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblPhoneVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = '061 12**'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object lblDatumBoravka: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Datum boravka'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectDolazak: TRectangle
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblDolazakVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = '25/12/2021'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblIzaberiDatum1: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Izaberi datum'
+          Font.Size = 12.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectOdlazak: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblOdlazakVal: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = '27/12/2021'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblIzaberiDatum2: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Izaberi datum'
+          Font.Size = 12.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object layoutSobeHeader: TLayout
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        object lblSobeLjubimci: TLabel
+          Align = Left
+          Size.Width = 180.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Sobe i ljubimci'
+          Font.Style = [fsBold]
+          Font.Size = 16.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblSobePromeni: TLabel
+          Align = Right
+          Size.Width = 70.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Promeni'
+          Font.Size = 13.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectBoks: TRectangle
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblBoksText: TLabel
+          Align = Left
+          Margins.Left = 16.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Boks'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblBoksArrow: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 20.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = #8250
+          Font.Size = 20.000000000000000000
+          FontColor = xFF888888
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectLjubimci: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblLjubimciText: TLabel
+          Align = Left
+          Margins.Left = 16.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Ljubimci'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblLjubimciArrow: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 20.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = #8250
+          Font.Size = 20.000000000000000000
+          FontColor = xFF888888
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object layoutPlacanjeHeader: TLayout
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        object lblPlacanje: TLabel
+          Align = Left
+          Size.Width = 120.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Pla'#263'anje'
+          Font.Style = [fsBold]
+          Font.Size = 16.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblPlacanjePromeni: TLabel
+          Align = Right
+          Size.Width = 70.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Promeni'
+          Font.Size = 13.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectMastercard: TRectangle
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblMastercardText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Master Card'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectVisa: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblVisaText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Visa'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectKes: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblKesText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Ke'#353
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+      end
+
+      object layoutIznosiHeader: TLayout
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 1.000000000000000000
+        Size.PlatformDefault = False
+        object rectDivider: TRectangle
+          Align = Client
+          Size.Width = 358.000000000000000000
+          Size.Height = 1.000000000000000000
+          Size.PlatformDefault = False
+          Fill.Color = xFFE0E0E0
+          Stroke.Kind = None
+        end
+      end
+      object layoutMedjutim: TLayout
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblMedjutimText: TLabel
+          Align = Left
+          Size.Width = 160.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Me'#273'utim'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+        end
+        object lblMedjutimVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$398'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF333333
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object layoutNaziv: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblNazivText: TLabel
+          Align = Left
+          Size.Width = 160.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Naziv'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF888888
+        end
+      end
+      object layoutUkupno: TLayout
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        object lblUkupnoText: TLabel
+          Align = Left
+          Size.Width = 100.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Ukupno'
+          Font.Style = [fsBold]
+          Font.Size = 15.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblUkupnoVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$368'
+          Font.Style = [fsBold]
+          Font.Size = 15.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+
+    end
+  end
+end

@@ -1,0 +1,548 @@
+object fraPredracun: TfraPredracun
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Size.Width = 390.000000000000000000
+      Size.Height = 64.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 10.000000000000000000
+      TabOrder = 0
+      object btnNazad: TButton
+        Align = Left
+        Size.Width = 36.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = '<'
+        Font.Size = 16.000000000000000000
+        TabOrder = 0
+      end
+      object layoutHeaderText: TLayout
+        Align = Client
+        Size.Width = 246.000000000000000000
+        Size.Height = 54.000000000000000000
+        Size.PlatformDefault = False
+        object lblTitle: TLabel
+          Align = Top
+          Size.Width = 246.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Predracun'
+          Font.Style = [fsBold]
+          Font.Size = 18.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Center
+        end
+        object lblPodTitle: TLabel
+          Align = Top
+          Size.Width = 246.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Pregledajte detalje pre potvrde'
+          Font.Size = 12.000000000000000000
+          FontColor = xFF888888
+          TextSettings.HorzAlign = Center
+        end
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      TabOrder = 2
+      object rectFooterBg: TRectangle
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFF1C1C2E
+        Stroke.Kind = None
+      end
+      object btnPlatiPotvrdi: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Plati i potvrdi'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        FontColor = xFFFFFFFF
+        TabOrder = 0
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 700.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 1
+      object lblKorisnikLjubimac: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Korisnik i ljubimac'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectKorisnik: TRectangle
+        Align = Top
+        Margins.Top = 8.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFF5F5F5
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblKorisnikIme: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Petar Petrovic'
+          Font.Style = [fsBold]
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblKorisnikEmail: TLabel
+          Position.X = 200.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'peta***@gmail.com'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+          TextSettings.HorzAlign = Trailing
+        end
+        object lblKorisnikLjubimacInfo: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 34.000000000000000000
+          Size.Width = 280.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Milo - Ameri'#269'ki pit bul '#183' 6 meseci'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+        end
+      end
+      object lblDetaljiBoravka: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Detalji boravka'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object layoutDatum: TLayout
+        Align = Top
+        Margins.Top = 8.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        object lblDatumText: TLabel
+          Align = Left
+          Size.Width = 140.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Datum boravka'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+          TextSettings.VertAlign = Center
+        end
+        object lblDatumVal: TLabel
+          Align = Right
+          Size.Width = 160.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = '25/12 '#8212' 27/12/2021'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object layoutBoks: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        object lblBoksText: TLabel
+          Align = Left
+          Size.Width = 80.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Boks'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+          TextSettings.VertAlign = Center
+        end
+        object lblBoksVal: TLabel
+          Align = Right
+          Size.Width = 130.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Unutra'#353'nji P7'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object layoutTrajanje: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        object lblTrajanjeText: TLabel
+          Align = Left
+          Size.Width = 100.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Trajanje'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+          TextSettings.VertAlign = Center
+        end
+        object lblTrajanjeVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = '2 no'#263'i'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object lblUkljuceneUsluge: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Uklju'#269'ene usluge'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectHrana: TRectangle
+        Align = Top
+        Margins.Top = 8.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblHranaText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 180.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Hrana '#8212' 4 obroka'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblHranaCena: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$48'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectKupanje: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblKupanjeText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Kupanje i nega'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblKupanjeCena: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$34'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectVeterinar: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblVeterinarText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 180.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Veterinarski pregled'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object lblVeterinarCena: TLabel
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$40'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+          TextSettings.VertAlign = Center
+        end
+      end
+      object lblIznosPlacanja: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Iznos za pla'#263'anje'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object layoutSmestaj: TLayout
+        Align = Top
+        Margins.Top = 8.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblSmestajText: TLabel
+          Align = Left
+          Size.Width = 180.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Sme'#353'taj (2 no'#263'i)'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+        end
+        object lblSmestajVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$80.00'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object layoutUsluge: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblUslugeText: TLabel
+          Align = Left
+          Size.Width = 100.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Usluge'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+        end
+        object lblUslugeVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$122.00'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object layoutPopust: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblPopustText: TLabel
+          Align = Left
+          Size.Width = 180.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Popust POKSI20'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+        end
+        object lblPopustVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = '-$40.40'
+          Font.Size = 13.000000000000000000
+          FontColor = xFFE53935
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object layoutPorez: TLayout
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        object lblPorezText: TLabel
+          Align = Left
+          Size.Width = 140.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Porez (10%)'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF555555
+        end
+        object lblPorezVal: TLabel
+          Align = Right
+          Size.Width = 80.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$16.16'
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object layoutUkupno: TLayout
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        object lblUkupnoText: TLabel
+          Align = Left
+          Size.Width = 100.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Ukupno'
+          Font.Style = [fsBold]
+          Font.Size = 15.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblUkupnoVal: TLabel
+          Align = Right
+          Size.Width = 90.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$177.76'
+          Font.Style = [fsBold]
+          Font.Size = 15.000000000000000000
+          FontColor = xFFFFC107
+          TextSettings.HorzAlign = Trailing
+        end
+      end
+      object rectBrojRezervacije: TRectangle
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFFFFC107
+        Stroke.Kind = None
+        object lblBrojRezLabel: TLabel
+          Position.X = 16.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Broj rezervacije'
+          Font.Size = 11.000000000000000000
+          FontColor = xCCFFFFFF
+        end
+        object lblBrojRezVal: TLabel
+          Position.X = 16.000000000000000000
+          Position.Y = 28.000000000000000000
+          Size.Width = 280.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'POK-2026-1847'
+          Font.Style = [fsBold]
+          Font.Size = 20.000000000000000000
+          FontColor = xFFFFFFFF
+        end
+      end
+    end
+  end
+end

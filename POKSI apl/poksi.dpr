@@ -15,7 +15,23 @@ uses
   fraRegister in 'fraRegister.pas' {Frame4: TFrame},
   uNavFrames in 'uNavFrames.pas',
   fraHome in 'fraHome.pas' {Frame5: TFrame},
-  uPetModel in 'uPetModel.pas';
+  uPetModel in 'uPetModel.pas',
+  fraKorpa in 'fraKorpa.pas' {Frame8: TFrame},
+  fraUsluge in 'fraUsluge.pas' {Frame6: TFrame},
+  fraRezervacija in 'fraRezervacija.pas' {fraRezervacija: TFrame},
+  fraDetaljiUsluge in 'fraDetaljiUsluge.pas' {fraDetaljiUsluge: TFrame},
+  fraKalendar in 'fraKalendar.pas' {fraKalendar: TFrame},
+  fraUnutrasnjiB in 'fraUnutrasnjiB.pas' {fraUnutrasnjiB: TFrame},
+  fraSpoljasnjiBoksevi in 'fraSpoljasnjiBoksevi.pas' {fraSpoljasnjiBoksevi: TFrame},
+  fraFiskalniRacun in 'fraFiskalniRacun.pas' {fraFiskalniRacun: TFrame},
+  fraPredracun in 'fraPredracun.pas' {fraPredracun: TFrame},
+  fraUspesno in 'fraUspesno.pas' {fraUspesno: TFrame},
+  fraDodavanjeKartice in 'fraDodavanjeKartice.pas' {fraDodavanjeKartice: TFrame},
+  fraDodatneInf in 'fraDodatneInf.pas' {fraDodatneInf: TFrame},
+  fraPotvrda in 'fraPotvrda.pas' {fraPotvrda: TFrame},
+  fraPlacanje in 'fraPlacanje.pas' {fraPlacanje: TFrame},
+  fraRezervacijaPocetak in 'fraRezervacijaPocetak.pas' {Frame9: TFrame},
+  uKorpaStore in 'uKorpaStore.pas';
 
 {$R *.res}
 

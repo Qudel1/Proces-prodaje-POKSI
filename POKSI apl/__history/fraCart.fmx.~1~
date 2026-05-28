@@ -1,0 +1,115 @@
+object fraCart: TFrame6
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object Layout1: TLayout
+    Align = Center
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object Layout2: TLayout
+      Align = Top
+      Padding.Left = 20.000000000000000000
+      Padding.Top = 20.000000000000000000
+      Padding.Right = 20.000000000000000000
+      Padding.Bottom = 20.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 70.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Label1: TLabel
+        Align = Left
+        StyledSettings = [Family, FontColor]
+        Position.X = 20.000000000000000000
+        Position.Y = 20.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 24.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Korpa'
+        TabOrder = 0
+      end
+      object Image1: TImage
+        MultiResBitmap = <
+          item
+            Width = 32
+            Height = 32
+            PNG = {89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7AF40000000473424954080808087C086488000000FC494441545885ED96D10D82}
+          end>
+        Margins.Right = 40.000000000000000000
+        Position.X = 306.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 40.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Layout3: TLayout
+      Align = Client
+      Padding.Left = 20.000000000000000000
+      Padding.Top = 10.000000000000000000
+      Padding.Right = 20.000000000000000000
+      Padding.Bottom = 80.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 704.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lstCart: TListView
+        Align = Client
+        Size.Width = 350.000000000000000000
+        Size.Height = 624.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearance.ItemEditAppearance.GroupName = 'Group1'
+        ItemAppearance.ItemEditAppearance.DetailText = 'detailtext'
+        ItemAppearance.ItemEditAppearance.Text = 'item'
+        ItemAppearance.GroupHeaderAppearance.GroupName = 'Group1'
+      end
+      object Label2: TLabel
+        Align = Bottom
+        StyledSettings = [Family, FontColor]
+        Margins.Top = 20.000000000000000000
+        Position.X = 20.000000000000000000
+        Position.Y = 604.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        Text = 'Ukupno: 0 RSD'
+        TabOrder = 1
+      end
+    end
+    object Layout4: TLayout
+      Align = Bottom
+      Position.Y = 744.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Rectangle1: TRectangle
+        Align = Client
+        Fill.Color = claYellow
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+        object Label3: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Text = 'Nastavi na plaćanje'
+          TextAlign = Center
+          VertAlign = Center
+          TabOrder = 0
+        end
+      end
+    end
+  end
+end

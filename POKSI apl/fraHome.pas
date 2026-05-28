@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox,
-  FireDAC.Comp.Client, uUserStore, uPetModel,uNavFrames;
+  FireDAC.Comp.Client, uUserStore, uPetModel,uNavFrames,fraRezervacijaPocetak;
 
 type
   TFrame5 = class(TFrame)
@@ -43,6 +43,7 @@ type
     procedure Label3Click(Sender: TObject);
     procedure Image5Click(Sender: TObject);
     procedure Loaded; override;
+    procedure Image2Click(Sender: TObject);
   private
     procedure LoadPetsFromDB;
     procedure LoadPetsIntoListBox;
@@ -76,6 +77,11 @@ begin
   if ActivePetIndex = -1 then
     ActivePetIndex := 0;
   RefreshMainCard;
+end;
+
+procedure TFrame5.Image2Click(Sender: TObject);
+begin
+  TNavFrames.Go(TFrame9.Create(nil));
 end;
 
 procedure TFrame5.Image5Click(Sender: TObject);

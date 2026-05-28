@@ -246,6 +246,82 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="uPetModel.pas"/>
+        <DCCReference Include="fraKorpa.pas">
+            <Form>Frame8</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraUsluge.pas">
+            <Form>Frame6</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraRezervacija.pas">
+            <Form>fraRezervacija</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraDetaljiUsluge.pas">
+            <Form>fraDetaljiUsluge</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraKalendar.pas">
+            <Form>fraKalendar</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraUnutrasnjiB.pas">
+            <Form>fraUnutrasnjiB</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraSpoljasnjiBoksevi.pas">
+            <Form>fraSpoljasnjiBoksevi</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraFiskalniRacun.pas">
+            <Form>fraFiskalniRacun</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraPredracun.pas">
+            <Form>fraPredracun</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraUspesno.pas">
+            <Form>fraUspesno</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraDodavanjeKartice.pas">
+            <Form>fraDodavanjeKartice</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraDodatneInf.pas">
+            <Form>fraDodatneInf</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraPotvrda.pas">
+            <Form>fraPotvrda</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraPlacanje.pas">
+            <Form>fraPlacanje</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fraRezervacijaPocetak.pas">
+            <Form>Frame9</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="uKorpaStore.pas"/>
         <RcItem Include="D:\Pictures\guster.png">
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>PngImage_2</ResourceId>

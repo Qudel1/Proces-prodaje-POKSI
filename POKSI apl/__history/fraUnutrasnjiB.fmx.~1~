@@ -1,0 +1,574 @@
+object fraUnutrasnjiB: TfraUnutrasnjiB
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      TabOrder = 0
+      object lblX: TLabel
+        Align = Left
+        Size.Width = 32.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        Text = #10005
+        Font.Size = 20.000000000000000000
+        FontColor = xFF000000
+        TextSettings.VertAlign = Center
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 262.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Unutra'#353'nji boksevi'
+        Font.Style = [fsBold]
+        Font.Size = 18.000000000000000000
+        FontColor = xFF000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+      object lblHomeIkona: TLabel
+        Align = Right
+        Size.Width = 32.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        Text = #127968
+        Font.Size = 20.000000000000000000
+        TextSettings.HorzAlign = Trailing
+        TextSettings.VertAlign = Center
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      TabOrder = 2
+      object btnSacuvaj: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Sa'#269'uvaj'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        FontColor = xFF000000
+        TabOrder = 0
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 708.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 1
+      object lblMackaP: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = #128008
+        Font.Size = 36.000000000000000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+      object lblSekcijaPas: TLabel
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'P boksevi (psi)'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object gridPBoksevi: TGridLayout
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 96.000000000000000000
+        Size.PlatformDefault = False
+        ItemWidth = 56.000000000000000000
+        ItemHeight = 44.000000000000000000
+        TabOrder = 0
+        object rectP0: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP0: TLabel
+            Align = Client
+            Text = 'P0'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP1: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP1: TLabel
+            Align = Client
+            Text = 'P1'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP2: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP2: TLabel
+            Align = Client
+            Text = 'P2'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP3: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE53935
+          Stroke.Kind = None
+          object lblP3: TLabel
+            Align = Client
+            Text = 'P3'
+            Font.Style = [fsBold]
+            Font.Size = 13.000000000000000000
+            FontColor = xFFFFFFFF
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP4: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP4: TLabel
+            Align = Client
+            Text = 'P4'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP5: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP5: TLabel
+            Align = Client
+            Text = 'P5'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP6: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP6: TLabel
+            Align = Client
+            Text = 'P6'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP7: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP7: TLabel
+            Align = Client
+            Text = 'P7'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP8: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblP8: TLabel
+            Align = Client
+            Text = 'P8'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectP9: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE53935
+          Stroke.Kind = None
+          object lblP9: TLabel
+            Align = Client
+            Text = 'P9'
+            Font.Style = [fsBold]
+            Font.Size = 13.000000000000000000
+            FontColor = xFFFFFFFF
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+      end
+      object lblMackaM: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Text = #128008
+        Font.Size = 36.000000000000000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+      object lblSekcijaMacka: TLabel
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'M boksevi (ma'#269'ke)'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object gridMBoksevi: TGridLayout
+        Align = Top
+        Margins.Top = 6.000000000000000000
+        Margins.Bottom = 8.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 140.000000000000000000
+        Size.PlatformDefault = False
+        ItemWidth = 56.000000000000000000
+        ItemHeight = 44.000000000000000000
+        TabOrder = 1
+        object rectM0: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM0: TLabel
+            Align = Client
+            Text = 'M0'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM1: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE53935
+          Stroke.Kind = None
+          object lblM1: TLabel
+            Align = Client
+            Text = 'M1'
+            Font.Style = [fsBold]
+            Font.Size = 13.000000000000000000
+            FontColor = xFFFFFFFF
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM2: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM2: TLabel
+            Align = Client
+            Text = 'M2'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM3: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM3: TLabel
+            Align = Client
+            Text = 'M3'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM4: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM4: TLabel
+            Align = Client
+            Text = 'M4'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM5: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE53935
+          Stroke.Kind = None
+          object lblM5: TLabel
+            Align = Client
+            Text = 'M5'
+            Font.Style = [fsBold]
+            Font.Size = 13.000000000000000000
+            FontColor = xFFFFFFFF
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM6: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM6: TLabel
+            Align = Client
+            Text = 'M6'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM7: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM7: TLabel
+            Align = Client
+            Text = 'M7'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM8: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM8: TLabel
+            Align = Client
+            Text = 'M8'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+        object rectM9: TRectangle
+          Size.Width = 56.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          Margins.Left = 2.000000000000000000
+          Margins.Right = 2.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          Fill.Color = xFFE8E8E8
+          Stroke.Kind = None
+          object lblM9: TLabel
+            Align = Client
+            Text = 'M9'
+            Font.Size = 13.000000000000000000
+            FontColor = xFF333333
+            TextSettings.HorzAlign = Center
+            TextSettings.VertAlign = Center
+          end
+        end
+      end
+    end
+  end
+end

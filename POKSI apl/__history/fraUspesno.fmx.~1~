@@ -1,0 +1,301 @@
+object fraUspesno: TfraUspesno
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 844.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 0
+      object rectCheckmark: TRectangle
+        Align = Top
+        Margins.Top = 48.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 40.000000000000000000
+        YRadius = 40.000000000000000000
+        Fill.Color = xFFE8F5E9
+        Stroke.Kind = None
+        object lblCheck: TLabel
+          Align = Client
+          Size.Width = 358.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          Text = #10003
+          Font.Size = 36.000000000000000000
+          FontColor = xFF4CAF50
+          TextSettings.HorzAlign = Center
+          TextSettings.VertAlign = Center
+        end
+      end
+      object lblUspesno: TLabel
+        Align = Top
+        Margins.Top = 20.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Uspesno!'
+        Font.Style = [fsBold]
+        Font.Size = 28.000000000000000000
+        FontColor = xFF000000
+        TextSettings.HorzAlign = Center
+      end
+      object lblPoruka: TLabel
+        Align = Top
+        Margins.Top = 8.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Va'#353'a rezervacija je potvr'#273'ena. Detalji su poslati na sledece kanale:'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        WordWrap = True
+      end
+      object lblStatusNotif: TLabel
+        Align = Top
+        Margins.Top = 24.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Status notifikacija'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectEmail: TRectangle
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblEmailNaslov: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Email potvrda'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblEmailSub: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Poslato na aste***@gmail.com'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+        end
+        object lblEmailStatus: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 48.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = #10003' Dobijeno - 11:42'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF4CAF50
+        end
+      end
+      object rectSMS: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblSMSNaslov: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'SMS notifikacija'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblSMSSub: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Poslato na +381 61 12*****'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+        end
+        object lblSMSStatus: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 48.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = #10003' Dobijeno - 11:42'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF4CAF50
+        end
+      end
+      object rectKalendar: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblKalendarNaslov: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 220.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Sinhronizacija kalendara'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblKalendarSub: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Google Calendar i Outlook'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+        end
+        object lblKalendarStatus: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 48.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = #10003' Dobito - 11:42'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF4CAF50
+        end
+      end
+      object rectOsoblje: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 68.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblOsobljeNaslov: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Osoblje obavesteno'
+          Font.Style = [fsBold]
+          Font.Size = 13.000000000000000000
+          FontColor = xFF000000
+        end
+        object lblOsobljeSub: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 32.000000000000000000
+          Size.Width = 280.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Radni nalog generisan za boks P7'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF888888
+        end
+        object lblOsobljeStatus: TLabel
+          Position.X = 52.000000000000000000
+          Position.Y = 48.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 16.000000000000000000
+          Size.PlatformDefault = False
+          Text = #10003' Dodeljeno'
+          Font.Size = 11.000000000000000000
+          FontColor = xFF4CAF50
+        end
+      end
+      object rectBrojRezervacije: TRectangle
+        Align = Top
+        Margins.Top = 20.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFFFFC107
+        Stroke.Kind = None
+        object lblBrojRez: TLabel
+          Align = Client
+          Size.Width = 358.000000000000000000
+          Size.Height = 64.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'POK-2026-1847'
+          Font.Style = [fsBold]
+          Font.Size = 20.000000000000000000
+          FontColor = xFFFFFFFF
+          TextSettings.HorzAlign = Center
+          TextSettings.VertAlign = Center
+        end
+      end
+      object rectBtnPregledaj: TRectangle
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFFFFC107
+        Stroke.Kind = None
+        object btnPregledaj: TButton
+          Align = Client
+          Size.Width = 358.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Pregledaj rezervaciju'
+          Font.Size = 16.000000000000000000
+          Font.Style = [fsBold]
+          FontColor = xFFFFFFFF
+          TabOrder = 0
+        end
+      end
+    end
+  end
+end

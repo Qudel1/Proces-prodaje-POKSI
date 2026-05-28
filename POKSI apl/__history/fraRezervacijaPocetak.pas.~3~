@@ -1,0 +1,80 @@
+unit fraRezervacijaPocetak;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Objects, FMX.Controls.Presentation, FMX.Layouts, FMX.ListBox,
+  uUserStore, uPetModel, uNavFrames;
+
+type
+  TFrame9 = class(TFrame)
+    layoutRoot: TLayout;
+    layoutHeader: TLayout;
+    lblTitle: TLabel;
+    lblSubtitle: TLabel;
+    listLjubimci: TListBox;
+    btnBack: TButton;
+    procedure listLjubimciClick(Sender: TObject);
+    procedure btnBackClick(Sender: TObject);
+    procedure Loaded; override;
+  private
+    procedure PopuniListu;
+  public
+  end;
+
+implementation
+
+{$R *.fmx}
+
+uses fraUsluge;
+
+procedure TFrame9.Loaded;
+begin
+  inherited;
+  PopuniListu;
+end;
+
+procedure TFrame9.PopuniListu;
+var
+  i: Integer;
+  Item: TListBoxItem;
+begin
+  listLjubimci.BeginUpdate;
+  try
+    listLjubimci.Clear;
+    for i := 0 to High(Pets) do
+    begin
+      if Pets[i].Id = 0 then Continue;
+      Item := TListBoxItem.Create(listLjubimci);
+      Item.Text := Pets[i].Name;
+      Item.ItemData.Detail := Pets[i].Breed + ' • ' + Pets[i].Age;
+      Item.Tag := i;
+      listLjubimci.AddObject(Item);
+    end;
+  finally
+    listLjubimci.EndUpdate;
+  end;
+end;
+
+procedure TFrame9.listLjubimciClick(Sender: TObject);
+var
+  Idx: Integer;
+begin
+  if listLjubimci.ItemIndex < 0 then Exit;
+  Idx := listLjubimci.ListItems[listLjubimci.ItemIndex].Tag;
+  ActivePetIndex       := Idx;
+  AktivnaKorpaId       := 0;
+  AktivnaRezervacijaId := 0;
+  UkupanIznos          := 0;
+  PrimenjeniPopust     := 0;
+  TNavFrames.Go(TFrame6.Create(nil));
+end;
+
+procedure TFrame9.btnBackClick(Sender: TObject);
+begin
+  TNavFrames.Back;
+end;
+
+end.

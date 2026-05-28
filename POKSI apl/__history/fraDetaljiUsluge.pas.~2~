@@ -1,0 +1,53 @@
+unit fraDetaljiUsluge;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Layouts, FMX.Objects, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation;
+
+type
+  TfraDetaljiUsluge = class(TFrame)
+    layoutRoot: TLayout;
+    layoutHeader: TLayout;
+    lblBackArrow: TLabel;
+    lblTitle: TLabel;
+    layoutFooter: TLayout;
+    btnDodajUKorpu: TButton;
+    vertScroll: TVertScrollBox;
+    layoutIkona: TLayout;
+    lblIkona: TLabel;
+    lblNazivUsluge: TLabel;
+    layoutRating: TLayout;
+    lblUdaljenost: TLabel;
+    lblRating: TLabel;
+    lblCena: TLabel;
+    lblOpisHeader: TLabel;
+    lblOpisTekst: TLabel;
+    lblDodatneOpcije: TLabel;
+    rectOpcija1: TRectangle;
+    lblOpcija1Text: TLabel;
+    lblOpcija1Cena: TLabel;
+    rectOpcija2: TRectangle;
+    lblOpcija2Text: TLabel;
+    lblOpcija2Cena: TLabel;
+    rectOpcija3: TRectangle;
+    lblOpcija3Text: TLabel;
+    lblOpcija3Cena: TLabel;
+    rectOpcija4: TRectangle;
+    lblOpcija4Text: TLabel;
+    lblOpcija4Cena: TLabel;
+    lblPosebneNapomene: TLabel;
+    memoNapomene: TMemo;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.fmx}
+
+end.

@@ -1,0 +1,850 @@
+object fraKalendar: TfraKalendar
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lblX: TLabel
+        Align = Left
+        Position.X = 16.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 32.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 20.000000000000000000
+        Text = #10005
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 326.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Datum'
+      end
+    end
+    object layoutDolaziOdlazak: TLayout
+      Align = Top
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 8.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 4.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object rectDolazak: TRectangle
+        Align = Left
+        Fill.Color = claWhitesmoke
+        Position.X = 16.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 174.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object lblDolazakIkona: TLabel
+          Align = Left
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Size.Width = 20.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = #62661
+        end
+        object lblDolazakDatum: TLabel
+          Align = Client
+          Margins.Left = 4.000000000000000000
+          Size.Width = 140.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 13.000000000000000000
+          Text = '25/12/2021'
+        end
+      end
+      object rectOdlazak: TRectangle
+        Align = Right
+        Fill.Color = claWhitesmoke
+        Position.X = 200.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 174.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object lblOdlazakIkona: TLabel
+          Align = Left
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Size.Width = 20.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = #62661
+        end
+        object lblOdlazakDatum: TLabel
+          Align = Client
+          Margins.Left = 4.000000000000000000
+          Size.Width = 140.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 13.000000000000000000
+          Text = '27/12/2021'
+        end
+      end
+    end
+    object layoutMesecNav: TLayout
+      Align = Top
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 4.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Position.Y = 116.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object btnPrevMesec: TButton
+        Align = Left
+        Position.X = 16.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 36.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = '<'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Trimming = None
+      end
+      object lblMesecGodina: TLabel
+        Align = Client
+        Size.Width = 286.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 15.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'December 2021'
+      end
+      object btnNextMesec: TButton
+        Align = Right
+        Position.X = 338.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 36.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = '>'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Trimming = None
+      end
+    end
+    object layoutDaniNedelje: TLayout
+      Align = Top
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Position.Y = 156.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object lblS1: TLabel
+        Align = Left
+        Position.X = 16.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'S'
+      end
+      object lblM: TLabel
+        Align = Left
+        Position.X = 67.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'M'
+      end
+      object lblT1: TLabel
+        Align = Left
+        Position.X = 118.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'T'
+      end
+      object lblW: TLabel
+        Align = Left
+        Position.X = 169.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'W'
+      end
+      object lblT2: TLabel
+        Align = Left
+        Position.X = 220.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'T'
+      end
+      object lblF: TLabel
+        Align = Left
+        Position.X = 271.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'F'
+      end
+      object lblS2: TLabel
+        Align = Left
+        Position.X = 322.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF888888
+        TextSettings.HorzAlign = Center
+        Text = 'S'
+      end
+    end
+    object gridKalendar: TGridLayout
+      Align = Top
+      ItemHeight = 48.000000000000000000
+      ItemWidth = 51.000000000000000000
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 4.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Orientation = Horizontal
+      Position.Y = 188.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 336.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object rectD1: TRectangle
+        Fill.Kind = None
+        Position.X = 16.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD1: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '1'
+        end
+      end
+      object rectD2: TRectangle
+        Fill.Kind = None
+        Position.X = 67.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD2: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '2'
+        end
+      end
+      object rectD3: TRectangle
+        Fill.Kind = None
+        Position.X = 118.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD3: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '3'
+        end
+      end
+      object rectD4: TRectangle
+        Fill.Kind = None
+        Position.X = 169.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD4: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '4'
+        end
+      end
+      object rectD5: TRectangle
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD5: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '5'
+        end
+      end
+      object rectD6: TRectangle
+        Fill.Kind = None
+        Position.X = 271.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD6: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '6'
+        end
+      end
+      object rectD7: TRectangle
+        Fill.Kind = None
+        Position.X = 16.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD7: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '7'
+        end
+      end
+      object rectD8: TRectangle
+        Fill.Kind = None
+        Position.X = 67.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD8: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '8'
+        end
+      end
+      object rectD9: TRectangle
+        Fill.Kind = None
+        Position.X = 118.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD9: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '9'
+        end
+      end
+      object rectD10: TRectangle
+        Fill.Kind = None
+        Position.X = 169.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD10: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '10'
+        end
+      end
+      object rectD11: TRectangle
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD11: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '11'
+        end
+      end
+      object rectD12: TRectangle
+        Fill.Kind = None
+        Position.X = 271.000000000000000000
+        Position.Y = 52.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD12: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '12'
+        end
+      end
+      object rectD13: TRectangle
+        Fill.Kind = None
+        Position.X = 16.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD13: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '13'
+        end
+      end
+      object rectD14: TRectangle
+        Fill.Kind = None
+        Position.X = 67.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD14: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '14'
+        end
+      end
+      object rectD15: TRectangle
+        Fill.Kind = None
+        Position.X = 118.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD15: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '15'
+        end
+      end
+      object rectD16: TRectangle
+        Fill.Kind = None
+        Position.X = 169.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD16: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '16'
+        end
+      end
+      object rectD17: TRectangle
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD17: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '17'
+        end
+      end
+      object rectD18: TRectangle
+        Fill.Kind = None
+        Position.X = 271.000000000000000000
+        Position.Y = 100.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD18: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '18'
+        end
+      end
+      object rectD19: TRectangle
+        Fill.Kind = None
+        Position.X = 16.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD19: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '19'
+        end
+      end
+      object rectD20: TRectangle
+        Fill.Kind = None
+        Position.X = 67.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD20: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '20'
+        end
+      end
+      object rectD21: TRectangle
+        Fill.Kind = None
+        Position.X = 118.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD21: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '21'
+        end
+      end
+      object rectD22: TRectangle
+        Fill.Kind = None
+        Position.X = 169.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD22: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '22'
+        end
+      end
+      object rectD23: TRectangle
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD23: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '23'
+        end
+      end
+      object rectD24: TRectangle
+        Fill.Kind = None
+        Position.X = 271.000000000000000000
+        Position.Y = 148.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD24: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '24'
+        end
+      end
+      object rectD25: TRectangle
+        Fill.Color = xFF1C1C2E
+        Position.X = 16.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 24.000000000000000000
+        YRadius = 24.000000000000000000
+        object lblD25: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          TextSettings.HorzAlign = Center
+          Text = '25'
+        end
+      end
+      object rectD26: TRectangle
+        Fill.Color = xFFE8E8E8
+        Position.X = 67.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD26: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '26'
+        end
+      end
+      object rectD27: TRectangle
+        Fill.Color = xFF1C1C2E
+        Position.X = 118.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 24.000000000000000000
+        YRadius = 24.000000000000000000
+        object lblD27: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claWhite
+          TextSettings.HorzAlign = Center
+          Text = '27'
+        end
+      end
+      object rectD28: TRectangle
+        Fill.Kind = None
+        Position.X = 169.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD28: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '28'
+        end
+      end
+      object rectD29: TRectangle
+        Fill.Kind = None
+        Position.X = 220.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD29: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '29'
+        end
+      end
+      object rectD30: TRectangle
+        Fill.Kind = None
+        Position.X = 271.000000000000000000
+        Position.Y = 196.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD30: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '30'
+        end
+      end
+      object rectD31: TRectangle
+        Fill.Kind = None
+        Position.X = 16.000000000000000000
+        Position.Y = 244.000000000000000000
+        Size.Width = 51.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object lblD31: TLabel
+          Align = Client
+          Size.Width = 51.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF333333
+          TextSettings.HorzAlign = Center
+          Text = '31'
+        end
+      end
+    end
+  end
+end

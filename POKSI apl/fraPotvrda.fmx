@@ -1,0 +1,239 @@
+object fraPotvrda: TfraPotvrda
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 10.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btnZatvori: TButton
+        Align = Left
+        Position.X = 16.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 36.000000000000000000
+        Size.Height = 46.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'X'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Trimming = None
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 322.000000000000000000
+        Size.Height = 46.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Potvrda'
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Padding.Left = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      Position.Y = 764.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object rectFooterBg: TRectangle
+        Align = Client
+        Fill.Color = xFF1C1C2E
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+      end
+      object btnNastavi: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Nastavi'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        TextSettings.Trimming = None
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      Size.Width = 390.000000000000000000
+      Size.Height = 708.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      ShowScrollBars = False
+      Viewport.Width = 390.000000000000000000
+      Viewport.Height = 708.000000000000000000
+      object lblOpis: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.FontColor = xFF888888
+        Text = 'Proverite da li su uneti podaci ispravni'
+        TabOrder = 0
+      end
+      object lblPodaciOKartici: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 48.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Podaci o kartici'
+        TabOrder = 1
+      end
+      object rectRed1: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Top = 8.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 84.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lblRed1: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Position.X = 52.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF888888
+          Text = '.......'
+        end
+      end
+      object rectRed2: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 142.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lblRed2: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Position.X = 52.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = '020'
+        end
+      end
+      object rectRed3: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 200.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lblRed3: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Position.X = 52.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF888888
+          Text = '.......'
+        end
+      end
+      object rectRed4: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 258.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lblRed4: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Position.X = 52.000000000000000000
+          Size.Width = 260.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = '1546 / 8954 / 7854 / 5796'
+        end
+      end
+      object rectRed5: TRectangle
+        Align = Top
+        Fill.Color = claWhite
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Position.X = 16.000000000000000000
+        Position.Y = 316.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFE0E0E0
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lblRed5: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Position.X = 52.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = '1579864945'
+        end
+      end
+    end
+  end
+end

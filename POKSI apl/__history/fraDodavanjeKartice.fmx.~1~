@@ -1,0 +1,267 @@
+object fraDodavanjeKartice: TfraDodavanjeKartice
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 10.000000000000000000
+      TabOrder = 0
+      object btnZatvori: TButton
+        Align = Left
+        Size.Width = 36.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'X'
+        Font.Size = 16.000000000000000000
+        TabOrder = 0
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 246.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Dodaj karticu'
+        Font.Style = [fsBold]
+        Font.Size = 18.000000000000000000
+        FontColor = xFF000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      TabOrder = 2
+      object rectFooterBg: TRectangle
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFF1C1C2E
+        Stroke.Kind = None
+      end
+      object btnNastavi: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Nastavi'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        FontColor = xFFFFFFFF
+        TabOrder = 0
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 708.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 1
+      object lblOpis: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Unesite ta'#269'ne podatke va'#353'e kartice'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object lblImeVlasnika: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Ime vlasnika kartice'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectImeVlasnika: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object editImeVlasnika: TEdit
+          Align = Client
+          Margins.Left = 48.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Size.Width = 302.000000000000000000
+          Size.Height = 46.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '........'
+          Text = ''
+          Font.Size = 14.000000000000000000
+          TabOrder = 0
+        end
+      end
+      object lblCVV: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'CVV'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectCVV: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object editCVV: TEdit
+          Align = Client
+          Margins.Left = 48.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Size.Width = 302.000000000000000000
+          Size.Height = 46.000000000000000000
+          Size.PlatformDefault = False
+          Text = '020'
+          Font.Size = 14.000000000000000000
+          Password = True
+          TabOrder = 0
+        end
+      end
+      object lblBanka: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Banka Izdavalac'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectBanka: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object editBanka: TEdit
+          Align = Client
+          Margins.Left = 48.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Size.Width = 302.000000000000000000
+          Size.Height = 46.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '........'
+          Text = ''
+          Font.Size = 14.000000000000000000
+          TabOrder = 0
+        end
+      end
+      object lblBrojKartice: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Broj kartice'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectBrojKartice: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object editBrojKartice: TEdit
+          Align = Client
+          Margins.Left = 48.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Size.Width = 302.000000000000000000
+          Size.Height = 46.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '1546 / 8954 / 7854 / 5796'
+          Text = ''
+          Font.Size = 14.000000000000000000
+          TabOrder = 0
+        end
+      end
+      object lblBrojRacuna: TLabel
+        Align = Top
+        Margins.Top = 12.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Broj racuna'
+        Font.Size = 13.000000000000000000
+        FontColor = xFF888888
+      end
+      object rectBrojRacuna: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object editBrojRacuna: TEdit
+          Align = Client
+          Margins.Left = 48.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Size.Width = 302.000000000000000000
+          Size.Height = 46.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = '1579864945'
+          Text = ''
+          Font.Size = 14.000000000000000000
+          TabOrder = 0
+        end
+      end
+    end
+  end
+end

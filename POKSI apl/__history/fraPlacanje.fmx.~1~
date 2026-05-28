@@ -1,0 +1,258 @@
+object fraPlacanje: TfraPlacanje
+  Size.Width = 390.000000000000000000
+  Size.Height = 844.000000000000000000
+  Size.PlatformDefault = False
+  object layoutRoot: TLayout
+    Align = Client
+    Size.Width = 390.000000000000000000
+    Size.Height = 844.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object layoutHeader: TLayout
+      Align = Top
+      Size.Width = 390.000000000000000000
+      Size.Height = 56.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 10.000000000000000000
+      TabOrder = 0
+      object btnNazad: TButton
+        Align = Left
+        Size.Width = 36.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = '<'
+        Font.Size = 16.000000000000000000
+        TabOrder = 0
+      end
+      object lblTitle: TLabel
+        Align = Client
+        Size.Width = 246.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Pla'#263'anje'
+        Font.Style = [fsBold]
+        Font.Size = 18.000000000000000000
+        FontColor = xFF000000
+        TextSettings.HorzAlign = Center
+        TextSettings.VertAlign = Center
+      end
+      object btnDodajKarticu: TButton
+        Align = Right
+        Size.Width = 36.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        Text = '+'
+        Font.Size = 20.000000000000000000
+        TabOrder = 1
+      end
+    end
+    object layoutFooter: TLayout
+      Align = Bottom
+      Size.Width = 390.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Top = 12.000000000000000000
+      Padding.Bottom = 16.000000000000000000
+      TabOrder = 2
+      object rectFooterBg: TRectangle
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 12.000000000000000000
+        YRadius = 12.000000000000000000
+        Fill.Color = xFF1C1C2E
+        Stroke.Kind = None
+      end
+      object btnPotvrdi: TButton
+        Align = Client
+        Size.Width = 358.000000000000000000
+        Size.Height = 52.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Potvrdi'
+        Font.Size = 16.000000000000000000
+        Font.Style = [fsBold]
+        FontColor = xFFFFFFFF
+        TabOrder = 0
+      end
+    end
+    object vertScroll: TVertScrollBox
+      Align = Client
+      Size.Width = 390.000000000000000000
+      Size.Height = 708.000000000000000000
+      Size.PlatformDefault = False
+      Padding.Left = 16.000000000000000000
+      Padding.Right = 16.000000000000000000
+      Padding.Bottom = 8.000000000000000000
+      ShowScrollBars = False
+      TabOrder = 1
+      object lblVasaKartica: TLabel
+        Align = Top
+        Margins.Top = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Va'#353'a kartica'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectKartica: TRectangle
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 180.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 16.000000000000000000
+        YRadius = 16.000000000000000000
+        Fill.Color = xFF3949AB
+        Stroke.Kind = None
+        object lblKarticaIznos: TLabel
+          Position.X = 20.000000000000000000
+          Position.Y = 24.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          Text = '$ 5600'
+          Font.Style = [fsBold]
+          Font.Size = 22.000000000000000000
+          FontColor = xFFFFFFFF
+        end
+        object lblKarticaName: TLabel
+          Position.X = 20.000000000000000000
+          Position.Y = 140.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'NAME ........'
+          Font.Size = 11.000000000000000000
+          FontColor = xAAFFFFFF
+        end
+        object lblKarticaExp: TLabel
+          Position.X = 20.000000000000000000
+          Position.Y = 158.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 18.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Exp 09/22'
+          Font.Size = 11.000000000000000000
+          FontColor = xAAFFFFFF
+        end
+      end
+      object lblNacinPlacanja: TLabel
+        Align = Top
+        Margins.Top = 20.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Izaberite na'#269'in pla'#263'anja'
+        Font.Style = [fsBold]
+        Font.Size = 16.000000000000000000
+        FontColor = xFF000000
+      end
+      object rectMastercard: TRectangle
+        Align = Top
+        Margins.Top = 10.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblMastercardText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Mastercard'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object rbMastercard: TRadioButton
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          IsChecked = True
+          TabOrder = 0
+        end
+      end
+      object rectKes: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblKesText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Ke'#353
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object rbKes: TRadioButton
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          IsChecked = False
+          TabOrder = 0
+        end
+      end
+      object rectVisa: TRectangle
+        Align = Top
+        Margins.Top = 4.000000000000000000
+        Margins.Bottom = 16.000000000000000000
+        Size.Width = 358.000000000000000000
+        Size.Height = 56.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        Fill.Color = xFFFFFFFF
+        Stroke.Color = xFFE0E0E0
+        Stroke.Thickness = 1.000000000000000000
+        object lblVisaText: TLabel
+          Align = Left
+          Margins.Left = 52.000000000000000000
+          Size.Width = 60.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Visa'
+          Font.Size = 14.000000000000000000
+          FontColor = xFF000000
+          TextSettings.VertAlign = Center
+        end
+        object rbVisa: TRadioButton
+          Align = Right
+          Margins.Right = 16.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          IsChecked = False
+          TabOrder = 0
+        end
+      end
+    end
+  end
+end
