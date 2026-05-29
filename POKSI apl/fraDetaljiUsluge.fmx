@@ -26,6 +26,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Size.PlatformDefault = False
         TextSettings.Font.Size = 22.000000000000000000
         Text = #8592
+        OnClick = lblBackArrowClick
       end
       object lblTitle: TLabel
         Align = Client
@@ -60,6 +61,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.Trimming = None
+        OnClick = btnDodajUKorpuClick
       end
     end
     object vertScroll: TVertScrollBox
@@ -204,6 +206,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOpcija1Click
         object lblOpcija1Text: TLabel
           Align = Left
           Margins.Left = 12.000000000000000000
@@ -239,6 +242,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOpcija2Click
         object lblOpcija2Text: TLabel
           Align = Left
           Margins.Left = 12.000000000000000000
@@ -274,6 +278,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOpcija3Click
         object lblOpcija3Text: TLabel
           Align = Left
           Margins.Left = 12.000000000000000000
@@ -309,6 +314,7 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Stroke.Kind = None
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOpcija4Click
         object lblOpcija4Text: TLabel
           Align = Left
           Margins.Left = 12.000000000000000000

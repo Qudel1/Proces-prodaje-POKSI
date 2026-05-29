@@ -246,11 +246,6 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="uPetModel.pas"/>
-        <DCCReference Include="fraKorpa.pas">
-            <Form>Frame8</Form>
-            <FormType>fmx</FormType>
-            <DesignClass>TFrame</DesignClass>
-        </DCCReference>
         <DCCReference Include="fraUsluge.pas">
             <Form>Frame6</Form>
             <FormType>fmx</FormType>
@@ -321,7 +316,12 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="uKorpaStore.pas"/>
+        <DCCReference Include="uKorpa.pas"/>
+        <DCCReference Include="fraKorpa.pas">
+            <Form>fraKorpa</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <RcItem Include="D:\Pictures\guster.png">
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>PngImage_2</ResourceId>

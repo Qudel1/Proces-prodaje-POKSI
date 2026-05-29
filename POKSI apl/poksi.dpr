@@ -16,7 +16,6 @@ uses
   uNavFrames in 'uNavFrames.pas',
   fraHome in 'fraHome.pas' {Frame5: TFrame},
   uPetModel in 'uPetModel.pas',
-  fraKorpa in 'fraKorpa.pas' {Frame8: TFrame},
   fraUsluge in 'fraUsluge.pas' {Frame6: TFrame},
   fraRezervacija in 'fraRezervacija.pas' {fraRezervacija: TFrame},
   fraDetaljiUsluge in 'fraDetaljiUsluge.pas' {fraDetaljiUsluge: TFrame},
@@ -31,7 +30,8 @@ uses
   fraPotvrda in 'fraPotvrda.pas' {fraPotvrda: TFrame},
   fraPlacanje in 'fraPlacanje.pas' {fraPlacanje: TFrame},
   fraRezervacijaPocetak in 'fraRezervacijaPocetak.pas' {Frame9: TFrame},
-  uKorpaStore in 'uKorpaStore.pas';
+  uKorpa in 'uKorpa.pas',
+  fraKorpa in 'fraKorpa.pas' {fraKorpa: TFrame};
 
 {$R *.res}
 
