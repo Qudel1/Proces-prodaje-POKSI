@@ -1,0 +1,148 @@
+unit fraIstorijaRacuna;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Layouts, FMX.Objects, FMX.ListBox, FMX.Controls.Presentation,
+  FireDAC.Comp.Client, uNavFrames, uUserStore;
+
+type
+  TfraIstorijaRacuna = class(TFrame)
+    layoutRoot: TLayout;
+    layoutHeader: TLayout;
+    lblBack: TButton;
+    lblTitle: TLabel;
+    ListBox1: TListBox;
+
+    procedure lblBackClick(Sender: TObject);
+    procedure ListBox1ItemClick(const Sender: TCustomListBox; const Item: TListBoxItem);
+    procedure Loaded; override;
+    procedure FrameEnter(Sender: TObject);
+  private
+    FRezIds: array of Integer;
+    procedure BuildUI;
+    procedure LoadIstoriju;
+  public
+    constructor Create(AOwner: TComponent); override;
+  end;
+
+implementation
+
+{$R *.fmx}
+
+uses
+  fraFiskalniRacun;
+
+constructor TfraIstorijaRacuna.Create(AOwner: TComponent);
+begin
+  inherited Create(AOwner);
+  BuildUI;
+  LoadIstoriju;
+end;
+
+procedure TfraIstorijaRacuna.BuildUI;
+begin
+  Self.Width := 390;
+  Self.Height := 844;
+
+  layoutRoot := TLayout.Create(Self);
+  layoutRoot.Parent := Self;
+  layoutRoot.Align := TAlignLayout.Client;
+
+  layoutHeader := TLayout.Create(Self);
+  layoutHeader.Parent := layoutRoot;
+  layoutHeader.Align := TAlignLayout.Top;
+  layoutHeader.Height := 56;
+  layoutHeader.Padding.Left := 16;
+  layoutHeader.Padding.Right := 16;
+  layoutHeader.Padding.Top := 12;
+
+  lblBack := TButton.Create(Self);
+  lblBack.Parent := layoutHeader;
+  lblBack.Align := TAlignLayout.Left;
+  lblBack.Width := 44;
+  lblBack.Height := 40;
+  lblBack.Text := #10094;  // ‹ kao na ostalim ekranima
+  lblBack.Font.Size := 18;
+  lblBack.OnClick := lblBackClick;
+
+  lblTitle := TLabel.Create(Self);
+  lblTitle.Parent := layoutHeader;
+  lblTitle.Align := TAlignLayout.Client;
+  lblTitle.Text := 'Istorija ra' + #269 + 'una';
+  lblTitle.Font.Size := 18;
+  lblTitle.Font.Style := [TFontStyle.fsBold];
+  lblTitle.TextSettings.HorzAlign := TTextAlign.Center;
+
+  ListBox1 := TListBox.Create(Self);
+  ListBox1.Parent := layoutRoot;
+  ListBox1.Align := TAlignLayout.Client;
+  ListBox1.Margins.Left := 12;
+  ListBox1.Margins.Right := 12;
+  ListBox1.Margins.Top := 8;
+  ListBox1.Margins.Bottom := 12;
+  ListBox1.OnItemClick := ListBox1ItemClick;
+end;
+
+procedure TfraIstorijaRacuna.LoadIstoriju;
+var
+  Item: TListBoxItem;
+  i: Integer;
+begin
+  ListBox1.BeginUpdate;
+  try
+    ListBox1.Clear;
+    SetLength(FRezIds, 0);
+
+    // Istorija je samo za trenutnu sesiju (SesijaRacuni)
+    for i := High(SesijaRacuni) downto 0 do
+    begin
+      Item := TListBoxItem.Create(ListBox1);
+      Item.Text := SesijaRacuni[i].BrojRacuna + '  -  $' +
+                   FormatFloat('0.00', SesijaRacuni[i].Ukupno);
+      Item.ItemData.Detail := SesijaRacuni[i].Datum;
+      Item.Height := 60;
+      Item.Tag := i;  // indeks u SesijaRacuni
+      ListBox1.AddObject(Item);
+    end;
+
+    if ListBox1.Count = 0 then
+    begin
+      Item := TListBoxItem.Create(ListBox1);
+      Item.Text := 'Nema ra' + #269 + 'una u istoriji.';
+      Item.HitTest := False;
+      Item.Tag := -1;
+      ListBox1.AddObject(Item);
+    end;
+  finally
+    ListBox1.EndUpdate;
+  end;
+end;
+
+procedure TfraIstorijaRacuna.Loaded;
+begin
+  inherited;
+end;
+
+procedure TfraIstorijaRacuna.FrameEnter(Sender: TObject);
+begin
+  LoadIstoriju;
+end;
+
+procedure TfraIstorijaRacuna.lblBackClick(Sender: TObject);
+begin
+  TNavFrames.Back;
+end;
+
+procedure TfraIstorijaRacuna.ListBox1ItemClick(const Sender: TCustomListBox;
+  const Item: TListBoxItem);
+begin
+  if Item.Tag < 0 then Exit;
+  if (Item.Tag > High(SesijaRacuni)) then Exit;
+  AktivniRacunBroj := SesijaRacuni[Item.Tag].BrojRacuna;
+  TNavFrames.Go(TfraFiskalniRacun.Create(nil));
+end;
+
+end.

@@ -957,6 +957,7 @@ object Frame6: TFrame6
             Size.PlatformDefault = False
             TabOrder = 0
             object Image3: TImage
+              OnClick = Image3Click
               MultiResBitmap = <
                 item
                   Width = 25
@@ -987,6 +988,7 @@ object Frame6: TFrame6
               Size.PlatformDefault = False
             end
             object Image4: TImage
+              OnClick = Image4Click
               MultiResBitmap = <
                 item
                   Width = 28

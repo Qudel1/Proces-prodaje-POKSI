@@ -3,10 +3,10 @@
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Objects, FMX.Controls.Presentation, FMX.Layouts,uNavFrames,fraForgot,
-  fraRegister,FireDAC.Comp.Client,uUserStore,fraHome;
+  FMX.Edit, FMX.Objects, FMX.Controls.Presentation, FMX.Layouts, uNavFrames,
+  fraForgot, fraRegister, FireDAC.Comp.Client, uUserStore, fraHome;
 
 type
   TFrame2 = class(TFrame)
@@ -44,10 +44,12 @@ begin
 end;
 
 procedure TFrame2.rectLoginButtonClick(Sender: TObject);
+var
+  Q: TFDQuery;
 begin
   if Trim(edtUsername.Text) = '' then
   begin
-    ShowMessage('Unesite korisničko ime ili email');
+    ShowMessage('Unesite korisni' + #269 + 'ko ime ili email');
     Exit;
   end;
 
@@ -57,40 +59,47 @@ begin
     Exit;
   end;
 
+  Q := TFDQuery.Create(nil);
   try
-    with TFDQuery.Create(nil) do
+    Q.Connection := DB;
+    Q.SQL.Text :=
+      'SELECT id, username, email, phone, prezime, adresa, ime, ' +
+      'kartica_broj, kartica_tip FROM users ' +
+      'WHERE (lower(username) = lower(:u) OR lower(email) = lower(:u)) ' +
+      'AND password = :p';
+    Q.ParamByName('u').AsString := Trim(edtUsername.Text);
+    Q.ParamByName('p').AsString := edtPassword.Text;
+    Q.Open;
+
+    if Q.IsEmpty then
     begin
-      try
-        Connection := DB;
-
-        SQL.Text :=
-          'SELECT * FROM users ' +
-          'WHERE (lower(username) = lower(:u) OR lower(email) = lower(:u)) ' +
-          'AND password = :p';
-
-        ParamByName('u').AsString := Trim(edtUsername.Text);
-        ParamByName('p').AsString := edtPassword.Text;
-
-        Open;
-
-        if IsEmpty then
-        begin
-          ShowMessage('Pogrešan username/email ili lozinka');
-          Exit;
-        end;
-
-      finally
-        Free;
-      end;
+      ShowMessage('Pogre' + #353 + 'an username/email ili lozinka');
+      Exit;
     end;
+
+    // Sačuvaj ulogovanog korisnika
+    UserStoreLoad(
+      Q.FieldByName('id').AsInteger,
+      Q.FieldByName('username').AsString,
+      Q.FieldByName('email').AsString,
+      Q.FieldByName('phone').AsString
+    );
+    LoggedUserPrezime := Q.FieldByName('prezime').AsString;
+    LoggedUserAdresa  := Q.FieldByName('adresa').AsString;
+    LoggedUserIme     := Q.FieldByName('ime').AsString;
+    KarticaBroj       := Q.FieldByName('kartica_broj').AsString;
+    KarticaTip        := Q.FieldByName('kartica_tip').AsString;
+
+    // Nova sesija - ocisti istoriju racuna i zauzete bokseve
+    SesijaResetuj;
 
     TNavFrames.Go(TFrame5.Create(nil));
 
   except
     on E: Exception do
-      ShowMessage('Greška: ' + E.Message);
+      ShowMessage('Gre' + #353 + 'ka: ' + E.Message);
   end;
+  Q.Free;
 end;
-
 
 end.

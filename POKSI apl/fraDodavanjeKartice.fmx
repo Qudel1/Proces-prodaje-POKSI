@@ -18,6 +18,7 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
       Size.PlatformDefault = False
       TabOrder = 0
       object btnZatvori: TButton
+        OnClick = btnZatvoriClick
         Align = Left
         Position.X = 16.000000000000000000
         Position.Y = 10.000000000000000000
@@ -62,6 +63,7 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
         YRadius = 12.000000000000000000
       end
       object btnNastavi: TButton
+        OnClick = btnNastaviClick
         Align = Client
         Size.Width = 358.000000000000000000
         Size.Height = 52.000000000000000000

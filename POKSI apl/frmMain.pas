@@ -48,6 +48,33 @@ begin
     'password TEXT)';
   FDQuery1.ExecSQL;
 
+  // Dodaj kolone prezime/adresa ako ne postoje (za starije baze)
+  try
+    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN prezime TEXT';
+    FDQuery1.ExecSQL;
+  except
+  end;
+  try
+    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN adresa TEXT';
+    FDQuery1.ExecSQL;
+  except
+  end;
+  try
+    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN ime TEXT';
+    FDQuery1.ExecSQL;
+  except
+  end;
+  try
+    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN kartica_broj TEXT';
+    FDQuery1.ExecSQL;
+  except
+  end;
+  try
+    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN kartica_tip TEXT';
+    FDQuery1.ExecSQL;
+  except
+  end;
+
   FDQuery1.SQL.Text :=
     'CREATE TABLE IF NOT EXISTS pets (' +
     'id INTEGER PRIMARY KEY AUTOINCREMENT,' +

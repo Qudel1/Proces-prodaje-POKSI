@@ -32,6 +32,18 @@ object Frame9: TFrame9
         Text = 'Napravi Rezervaciju'
         TabOrder = 0
       end
+      object btnIstorija: TButton
+        Align = Right
+        Position.X = 316.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'R'
+        TextSettings.Trimming = None
+        OnClick = btnIstorijaClick
+      end
     end
     object Layout4: TLayout
       Align = Bottom

@@ -59,6 +59,8 @@ type
     procedure ListBox1ItemClick(const Sender: TCustomListBox;
       const Item: TListBoxItem);
     procedure Image2Click(Sender: TObject);
+    procedure Image3Click(Sender: TObject);
+    procedure Image4Click(Sender: TObject);
     procedure FrameEnter(Sender: TObject);
     procedure Loaded; override;
 
@@ -79,7 +81,7 @@ implementation
 {$R *.fmx}
 
 uses
-  fraDetaljiUsluge, fraKorpa;
+  fraDetaljiUsluge, fraKorpa, fraHome, fraRezervacijaPocetak;
 
 // ── DB ────────────────────────────────────────────────────────────────────────
 
@@ -273,6 +275,18 @@ end;
 procedure TFrame6.Image2Click(Sender: TObject);
 begin
   TNavFrames.Go(TfraKorpa.Create(nil));
+end;
+
+procedure TFrame6.Image3Click(Sender: TObject);
+begin
+  // Kucica -> Home
+  TNavFrames.Go(TFrame5.Create(nil));
+end;
+
+procedure TFrame6.Image4Click(Sender: TObject);
+begin
+  // Sapica -> Pocetak rezervacije
+  TNavFrames.Go(TFrame9.Create(nil));
 end;
 
 end.

@@ -17,7 +17,7 @@ type
   TfraDetaljiUsluge = class(TFrame)
     layoutRoot: TLayout;
     layoutHeader: TLayout;
-    lblBackArrow: TLabel;
+    lblBackArrow: TButton;
     lblTitle: TLabel;
     layoutFooter: TLayout;
     btnDodajUKorpu: TButton;

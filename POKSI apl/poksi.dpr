@@ -31,6 +31,7 @@ uses
   fraPlacanje in 'fraPlacanje.pas' {fraPlacanje: TFrame},
   fraRezervacijaPocetak in 'fraRezervacijaPocetak.pas' {Frame9: TFrame},
   uKorpa in 'uKorpa.pas',
+  fraIstorijaRacuna in 'fraIstorijaRacuna.pas' {fraIstorijaRacuna: TFrame},
   fraKorpa in 'fraKorpa.pas' {fraKorpa: TFrame};
 
 {$R *.res}

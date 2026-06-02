@@ -2,6 +2,7 @@ object fraRezervacija: TfraRezervacija
   Size.Width = 390.000000000000000000
   Size.Height = 844.000000000000000000
   Size.PlatformDefault = False
+  OnEnter = FrameEnter
   object layoutRoot: TLayout
     Align = Client
     Size.Width = 390.000000000000000000
@@ -28,6 +29,7 @@ object fraRezervacija: TfraRezervacija
         Text = 'X'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.Trimming = None
+        OnClick = btnZatvoriClick
       end
       object lblTitle: TLabel
         Align = Client
@@ -72,6 +74,7 @@ object fraRezervacija: TfraRezervacija
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.Trimming = None
+        OnClick = btnPlatiClick
       end
     end
     object vertScroll: TVertScrollBox
@@ -111,6 +114,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOdaberiClick
         object lblOdaberi: TLabel
           Align = Left
           Margins.Left = 16.000000000000000000
@@ -340,6 +344,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectDolazakClick
         object lblDolazakVal: TLabel
           Align = Left
           Margins.Left = 52.000000000000000000
@@ -374,6 +379,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectOdlazakClick
         object lblOdlazakVal: TLabel
           Align = Left
           Margins.Left = 52.000000000000000000
@@ -424,6 +430,7 @@ object fraRezervacija: TfraRezervacija
           TextSettings.FontColor = xFFFFC107
           TextSettings.HorzAlign = Trailing
           Text = 'Promeni'
+          Visible = False
         end
       end
       object rectBoks: TRectangle
@@ -439,6 +446,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectBoksClick
         object lblBoksText: TLabel
           Align = Left
           Margins.Left = 16.000000000000000000
@@ -473,6 +481,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectLjubimciClick
         object lblLjubimciText: TLabel
           Align = Left
           Margins.Left = 16.000000000000000000
@@ -515,14 +524,18 @@ object fraRezervacija: TfraRezervacija
         end
         object lblPlacanjePromeni: TLabel
           Align = Right
-          Position.X = 288.000000000000000000
-          Size.Width = 70.000000000000000000
+          Cursor = crHandPoint
+          HitTest = True
+          Position.X = 258.000000000000000000
+          Size.Width = 100.000000000000000000
           Size.Height = 32.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 13.000000000000000000
-          TextSettings.FontColor = xFFFFC107
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.FontColor = xFF1E88E5
           TextSettings.HorzAlign = Trailing
           Text = 'Promeni'
+          Visible = False
+          OnClick = lblPlacanjePromeniClick
         end
       end
       object rectMastercard: TRectangle
@@ -538,6 +551,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectMastercardClick
         object lblMastercardText: TLabel
           Align = Left
           Margins.Left = 52.000000000000000000
@@ -562,6 +576,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectVisaClick
         object lblVisaText: TLabel
           Align = Left
           Margins.Left = 52.000000000000000000
@@ -585,6 +600,7 @@ object fraRezervacija: TfraRezervacija
         Stroke.Color = xFFE0E0E0
         XRadius = 10.000000000000000000
         YRadius = 10.000000000000000000
+        OnClick = rectKesClick
         object lblKesText: TLabel
           Align = Left
           Margins.Left = 52.000000000000000000

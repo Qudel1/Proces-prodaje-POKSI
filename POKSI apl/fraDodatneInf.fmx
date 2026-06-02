@@ -28,6 +28,7 @@ object fraDodatneInf: TfraDodatneInf
         Text = 'X'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.Trimming = None
+        OnClick = btnZatvoriClick
       end
       object lblTitle: TLabel
         Align = Client
@@ -102,7 +103,7 @@ object fraDodatneInf: TfraDodatneInf
           Text = 'Petar'
           object Edit1: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
-            TabOrder = 4
+            TabOrder = 3
             Position.X = -16.000000000000000000
             Position.Y = 1.000000000000000000
             Size.Width = 361.000000000000000000

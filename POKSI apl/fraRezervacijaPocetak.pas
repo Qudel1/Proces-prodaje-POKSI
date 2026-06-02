@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Objects, FMX.Controls.Presentation, FMX.ListBox,
   FireDAC.Comp.Client,
-  uUserStore, uPetModel, uNavFrames;
+  uUserStore, uPetModel, uNavFrames,fraIstorijaRacuna;
 
 type
   TFrame9 = class(TFrame)
@@ -39,6 +39,7 @@ type
     procedure Image2Click(Sender: TObject);
     procedure ImgPetClick(Sender: TObject);
     procedure Label3Click(Sender: TObject);
+    procedure btnIstorijaClick(Sender: TObject);
   private
     procedure LoadPetsFromDB;
     procedure LoadPetsIntoListBox;
@@ -62,6 +63,7 @@ begin
   RefreshMainCard;
   ListBox1.Visible := False;
 end;
+
 
 procedure TFrame9.FrameEnter(Sender: TObject);
 begin
@@ -183,6 +185,11 @@ end;
 procedure TFrame9.Image2Click(Sender: TObject);
 begin
   TNavFrames.Go(TFrame5.Create(nil));   // Home (kucica)
+end;
+
+procedure TFrame9.btnIstorijaClick(Sender: TObject);
+begin
+  TNavFrames.Go(TfraIstorijaRacuna.Create(nil));
 end;
 
 end.

@@ -6,13 +6,13 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Objects, FMX.ScrollBox, FMX.Edit,
-  FMX.Controls.Presentation, uKorpa, uNavFrames;
+  FMX.Controls.Presentation, uKorpa, uNavFrames, uUserStore;
 
 type
   TfraKorpa = class(TFrame)
     procedure FrameEnter(Sender: TObject);
     procedure btnNastaviClick(Sender: TObject);
-    procedure btnBackClick(Sender: TObject);
+    procedure btnNazadClick(Sender: TObject);
     procedure editPromoChange(Sender: TObject);
     procedure btnMinusClick(Sender: TObject);
     procedure btnPlusClick(Sender: TObject);
@@ -48,7 +48,7 @@ implementation
 uses
   fraRezervacija;
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
+// ── Build helpers ─────────────────────────────────────────────────────────────
 
 function NewLabel(AParent: TFmxObject; const ATxt: string;
   ASz: Single; ABold: Boolean; AClr: TAlphaColor): TLabel;
@@ -153,13 +153,13 @@ end;
 
 procedure TfraKorpa.BuildUI;
 var
-  Root, LayH, LayFoot, LayRow: TLayout;
-  LH: TLabel;
-  RPromo: TRectangle;
-  BtnNastavi, BtnBack: TButton;
+  Root, LayH, LayFoot, LayTop, LayRow: TLayout;
+  LH, LV: TLabel;
+  RPromo, R: TRectangle;
+  Btn: TButton;
   i: Integer;
 begin
-  Self.Width  := 390;
+  Self.Width := 390;
   Self.Height := 844;
 
   Root := TLayout.Create(Self);
@@ -169,53 +169,53 @@ begin
   // ── Header ──
   LayH := NewLayout(Root, 390, 60);
   LayH.Align := TAlignLayout.Top;
-  LayH.Padding.Left  := 16;
+  LayH.Padding.Left := 16;
   LayH.Padding.Right := 16;
-  LayH.Padding.Top   := 12;
+  LayH.Padding.Top := 12;
 
-  // Back dugme
-  BtnBack := TButton.Create(Self);
-  BtnBack.Parent := LayH;
-  BtnBack.Align := TAlignLayout.Left;
-  BtnBack.Width := 40;
-  BtnBack.Text := #8592;
-  BtnBack.Font.Size := 18;
-  BtnBack.OnClick := btnBackClick;
+  // Dugme Nazad (levo)
+  Btn := TButton.Create(Self);
+  Btn.Parent := LayH;
+  Btn.Align := TAlignLayout.Left;
+  Btn.Width := 40;
+  Btn.Text := #10094;  // ‹ strelica nazad
+  Btn.Font.Size := 18;
+  Btn.OnClick := btnNazadClick;
 
-  // Naslov
-  LH := NewLabel(LayH, 'Korpa', 22, True, TAlphaColors.Black);
-  LH.Align := TAlignLayout.Client;
-
-  // Broj stavki (desno, zuto)
+  // Broj stavki (desno)
   FLblStavke := NewLabel(LayH, '0 stavki', 14, False, $FFFFC107);
   FLblStavke.Align := TAlignLayout.Right;
-  FLblStavke.AutoSize := False;
-  FLblStavke.Width := 70;
   FLblStavke.TextSettings.HorzAlign := TTextAlign.Trailing;
+
+  // Naslov korpe (centriran, popunjava preostali prostor)
+  LH := NewLabel(LayH, 'Korpa', 20, True, TAlphaColors.Black);
+  LH.Align := TAlignLayout.Client;
+  LH.AutoSize := False;
+  LH.TextSettings.HorzAlign := TTextAlign.Center;
 
   // ── Footer ──
   LayFoot := NewLayout(Root, 390, 80);
   LayFoot.Align := TAlignLayout.Bottom;
-  LayFoot.Padding.Left   := 16;
-  LayFoot.Padding.Right  := 16;
-  LayFoot.Padding.Top    := 12;
+  LayFoot.Padding.Left := 16;
+  LayFoot.Padding.Right := 16;
+  LayFoot.Padding.Top := 12;
   LayFoot.Padding.Bottom := 16;
 
-  BtnNastavi := TButton.Create(Self);
-  BtnNastavi.Parent := LayFoot;
-  BtnNastavi.Align := TAlignLayout.Client;
-  BtnNastavi.Text := 'Nastavi na pla' + #263 + 'anje';
-  BtnNastavi.Font.Size := 16;
-  BtnNastavi.Font.Style := [TFontStyle.fsBold];
-  BtnNastavi.FontColor := TAlphaColors.White;
-  BtnNastavi.OnClick := btnNastaviClick;
+  Btn := TButton.Create(Self);
+  Btn.Parent := LayFoot;
+  Btn.Align := TAlignLayout.Client;
+  Btn.Text := 'Nastavi na pla' + #263 + 'anje';
+  Btn.Font.Size := 16;
+  Btn.Font.Style := [TFontStyle.fsBold];
+  Btn.FontColor := TAlphaColors.White;
+  Btn.OnClick := btnNastaviClick;
 
   // ── Scroll ──
   FVertScroll := TVertScrollBox.Create(Self);
   FVertScroll.Parent := Root;
   FVertScroll.Align := TAlignLayout.Client;
-  FVertScroll.Padding.Left   := 16;
-  FVertScroll.Padding.Right  := 16;
+  FVertScroll.Padding.Left := 16;
+  FVertScroll.Padding.Right := 16;
   FVertScroll.Padding.Bottom := 8;
   FVertScroll.ShowScrollBars := False;
 
@@ -233,11 +233,11 @@ begin
   LH.Margins.Top := 12;
   LH.AutoSize := False;
 
-  // Dinamicki redovi za usluge
+  // Dinamicki redovi
   for i := 0 to 5 do
     BuildRow(i);
 
-  // Promo kod
+  // Promo
   LH := NewLabel(FVertScroll, 'Promo kod', 16, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Top;
   LH.Height := 32;
@@ -252,7 +252,6 @@ begin
   FEditPromo.Parent := RPromo;
   FEditPromo.Align := TAlignLayout.Client;
   FEditPromo.Margins.Left := 12;
-  FEditPromo.Margins.Right := 70;
   FEditPromo.Font.Size := 14;
   FEditPromo.OnChange := editPromoChange;
 
@@ -262,7 +261,6 @@ begin
   FLblPromoPopust.AutoSize := False;
   FLblPromoPopust.Margins.Right := 12;
   FLblPromoPopust.TextSettings.HorzAlign := TTextAlign.Trailing;
-  FLblPromoPopust.TextSettings.VertAlign := TTextAlign.Center;
 
   // Pregled iznosa
   LH := NewLabel(FVertScroll, 'Pregled iznosa', 16, True, TAlphaColors.Black);
@@ -271,10 +269,11 @@ begin
   LH.Margins.Top := 12;
   LH.AutoSize := False;
 
+  // Direktno gradimo iznos redove
   LayRow := NewLayout(FVertScroll, 358, 26);
   LayRow.Align := TAlignLayout.Top;
   LayRow.Margins.Top := 3;
-  NewLabel(LayRow, 'Me' + #273 + 'utim', 13, False, $FF555555).Align := TAlignLayout.Left;
+  NewLabel(LayRow, 'Me' + #273 + 'uzbir', 13, False, $FF555555).Align := TAlignLayout.Left;
   FLblMedjutim := NewLabel(LayRow, '$0.00', 13, False, $FF333333);
   FLblMedjutim.Align := TAlignLayout.Right;
   FLblMedjutim.TextSettings.HorzAlign := TTextAlign.Trailing;
@@ -298,7 +297,6 @@ begin
   LayRow := NewLayout(FVertScroll, 358, 26);
   LayRow.Align := TAlignLayout.Top;
   LayRow.Margins.Top := 5;
-  LayRow.Margins.Bottom := 16;
   NewLabel(LayRow, 'Ukupno', 14, True, $FF333333).Align := TAlignLayout.Left;
   FLblUkupno := NewLabel(LayRow, '$0.00', 14, True, $FFFFC107);
   FLblUkupno.Align := TAlignLayout.Right;
@@ -309,35 +307,37 @@ constructor TfraKorpa.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   BuildUI;
-  RefreshKorpa; // Odmah popuni kad se kreira
+  RefreshKorpa;
 end;
 
 // ── Refresh ───────────────────────────────────────────────────────────────────
 
 procedure TfraKorpa.RefreshIznosi;
 var
-  Osnova, Popust, Porez, Ukupno: Double;
+  Osnova, Popust, Procenat, Ukupno: Double;
   n: Integer;
 begin
+  // Sinhronizuj globalni promo kod da rezervacija koristi isti
+  PromoKod := FEditPromo.Text;
+
   Osnova := KorpaUkupno;
-  Popust := KorpaPopust(FEditPromo.Text);
-  Porez  := (Osnova - Popust) * 0.10;
-  Ukupno := Osnova - Popust + Porez;
+  Procenat := KorpaPopustProcent(FEditPromo.Text);
+  Popust := Osnova * Procenat;
 
   FLblMedjutim.Text := '$' + FormatFloat('0.00', Osnova);
-
   if Popust > 0 then
   begin
-    FLblPopust.Text      := '-$' + FormatFloat('0.00', Popust);
-    FLblPromoPopust.Text := '-' + FormatFloat('0', KorpaPopustProcent(FEditPromo.Text) * 100) + '%';
+    FLblPopust.Text      := '-$' + FormatFloat('0.00', Popust) +
+      ' (-' + FormatFloat('0', Procenat * 100) + '%)';
+    FLblPromoPopust.Text := '-' + FormatFloat('0', Procenat * 100) + '%';
   end
   else
   begin
     FLblPopust.Text      := '$0.00';
     FLblPromoPopust.Text := '';
   end;
-
-  FLblPorez.Text  := '$' + FormatFloat('0.00', Porez);
+  Ukupno := Osnova - Popust + (Osnova - Popust) * 0.10;
+  FLblPorez.Text  := '$' + FormatFloat('0.00', (Osnova - Popust) * 0.10);
   FLblUkupno.Text := '$' + FormatFloat('0.00', Ukupno);
 
   n := KorpaBrojStavki;
@@ -346,24 +346,25 @@ end;
 
 procedure TfraKorpa.RefreshKorpa;
 var
-  i, r, n: Integer;
+  i, r: Integer;
 begin
-  n := KorpaBrojStavki;
-
   for i := 0 to 5 do
     FRowRect[i].Visible := False;
 
   r := 0;
   for i := 0 to High(KorpaItems) do
   begin
-    if KorpaItems[i].ServiceId = 0 then Continue;
     if r > 5 then Break;
-    FRowRect[r].Visible := True;
-    FRowNaz[r].Text     := KorpaItems[i].Naziv;
-    FRowCena[r].Text    := '$' + FormatFloat('0.##', KorpaItems[i].Cena);
-    FRowKol[r].Text     := KorpaItems[i].Kolicina.ToString;
-    FRowBtnM[r].Tag     := i;
-    FRowBtnP[r].Tag     := i;
+    // Preskoci prazne slotove
+    if KorpaItems[i].ServiceId = 0 then Continue;
+
+    FRowRect[r].Visible  := True;
+    FRowNaz[r].Text      := KorpaItems[i].Naziv;
+    FRowCena[r].Text     := '$' + FormatFloat('0.##', KorpaItems[i].Cena * KorpaItems[i].Kolicina);
+    FRowKol[r].Text      := KorpaItems[i].Kolicina.ToString;
+    // Tag = stvarni index u KorpaItems (ne r)
+    FRowBtnM[r].Tag      := i;
+    FRowBtnP[r].Tag      := i;
     Inc(r);
   end;
 
@@ -383,8 +384,7 @@ begin
 end;
 
 procedure TfraKorpa.btnMinusClick(Sender: TObject);
-var
-  idx: Integer;
+var idx: Integer;
 begin
   idx := (Sender as TButton).Tag;
   if idx > High(KorpaItems) then Exit;
@@ -393,8 +393,7 @@ begin
 end;
 
 procedure TfraKorpa.btnPlusClick(Sender: TObject);
-var
-  idx: Integer;
+var idx: Integer;
 begin
   idx := (Sender as TButton).Tag;
   if idx > High(KorpaItems) then Exit;
@@ -404,15 +403,10 @@ end;
 
 procedure TfraKorpa.btnNastaviClick(Sender: TObject);
 begin
-  if KorpaBrojStavki = 0 then
-  begin
-    ShowMessage('Korpa je prazna. Dodajte usluge.');
-    Exit;
-  end;
   TNavFrames.Go(TfraRezervacija.Create(nil));
 end;
 
-procedure TfraKorpa.btnBackClick(Sender: TObject);
+procedure TfraKorpa.btnNazadClick(Sender: TObject);
 begin
   TNavFrames.Back;
 end;

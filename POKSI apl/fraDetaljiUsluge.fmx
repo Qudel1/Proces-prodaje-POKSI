@@ -17,15 +17,15 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
       Size.Height = 56.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object lblBackArrow: TLabel
+      object lblBackArrow: TButton
         Align = Left
         Position.X = 16.000000000000000000
-        Position.Y = 12.000000000000000000
-        Size.Width = 32.000000000000000000
-        Size.Height = 44.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 22.000000000000000000
-        Text = #8592
+        TextSettings.Font.Size = 18.000000000000000000
+        Text = #10094
         OnClick = lblBackArrowClick
       end
       object lblTitle: TLabel

@@ -1,0 +1,37 @@
+unit uUserStore;
+
+interface
+
+uses
+  FireDAC.Comp.Client;
+
+var
+  DB: TFDConnection;
+
+  LoggedUserId:      Integer;
+  LoggedUsername:    string;
+  LoggedUserEmail:   string;
+  LoggedUserPhone:   string;
+
+procedure UserStoreClear;
+procedure UserStoreLoad(AId: Integer; const AUsername, AEmail, APhone: string);
+
+implementation
+
+procedure UserStoreClear;
+begin
+  LoggedUserId    := 0;
+  LoggedUsername  := '';
+  LoggedUserEmail := '';
+  LoggedUserPhone := '';
+end;
+
+procedure UserStoreLoad(AId: Integer; const AUsername, AEmail, APhone: string);
+begin
+  LoggedUserId    := AId;
+  LoggedUsername  := AUsername;
+  LoggedUserEmail := AEmail;
+  LoggedUserPhone := APhone;
+end;
+
+end.

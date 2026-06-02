@@ -17,15 +17,16 @@ object fraUnutrasnjiB: TfraUnutrasnjiB
       Size.Height = 56.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object lblX: TLabel
+      object lblX: TButton
+        OnClick = lblXClick
         Align = Left
         Position.X = 16.000000000000000000
-        Position.Y = 12.000000000000000000
-        Size.Width = 32.000000000000000000
-        Size.Height = 44.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 44.000000000000000000
+        Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 20.000000000000000000
-        Text = #10005
+        TextSettings.Font.Size = 18.000000000000000000
+        Text = #10094
       end
       object lblTitle: TLabel
         Align = Client
@@ -37,19 +38,20 @@ object fraUnutrasnjiB: TfraUnutrasnjiB
         TextSettings.HorzAlign = Center
         Text = 'Unutra'#353'nji boksevi'
       end
-      object lblHomeIkona: TLabel
+      object lblHomeIkona: TButton
+        OnClick = lblHomeIkonaClick
         Align = Right
-        Position.X = 342.000000000000000000
-        Position.Y = 12.000000000000000000
-        Size.Width = 32.000000000000000000
-        Size.Height = 44.000000000000000000
+        Position.X = 272.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 102.000000000000000000
+        Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 20.000000000000000000
-        TextSettings.HorzAlign = Trailing
-        Text = #62432
+        TextSettings.Font.Size = 13.000000000000000000
+        Text = 'Spolja'#353'nji  '#9656
       end
     end
     object layoutFooter: TLayout
+      Visible = False
       Align = Bottom
       Padding.Left = 16.000000000000000000
       Padding.Top = 12.000000000000000000
@@ -61,6 +63,7 @@ object fraUnutrasnjiB: TfraUnutrasnjiB
       Size.PlatformDefault = False
       TabOrder = 2
       object btnSacuvaj: TButton
+        OnClick = btnSacuvajClick
         Align = Client
         Size.Width = 358.000000000000000000
         Size.Height = 52.000000000000000000
@@ -92,9 +95,10 @@ object fraUnutrasnjiB: TfraUnutrasnjiB
         Size.Width = 358.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 36.000000000000000000
+        TextSettings.Font.Size = 1.000000000000000000
         TextSettings.HorzAlign = Center
-        Text = #62472
+        Text = ' '
+        Visible = False
         TabOrder = 2
       end
       object lblSekcijaPas: TLabel
@@ -383,9 +387,10 @@ object fraUnutrasnjiB: TfraUnutrasnjiB
         Size.Width = 358.000000000000000000
         Size.Height = 48.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 36.000000000000000000
+        TextSettings.Font.Size = 1.000000000000000000
         TextSettings.HorzAlign = Center
-        Text = #62472
+        Text = ' '
+        Visible = False
         TabOrder = 4
       end
       object lblSekcijaMacka: TLabel

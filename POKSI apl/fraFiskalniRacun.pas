@@ -4,8 +4,10 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.DateUtils,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Layouts, FMX.Objects, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Edit;
+  FMX.Layouts, FMX.Objects, FMX.ScrollBox, FMX.Controls.Presentation, FMX.Edit,
+  FireDAC.Comp.Client, uNavFrames, uKorpa, uUserStore;
 
 type
   TfraFiskalniRacun = class(TFrame)
@@ -81,14 +83,167 @@ type
     rectQR: TRectangle;
     lblQR: TLabel;
     lblQRSub: TLabel;
+
+    procedure btnNazadClick(Sender: TObject);
+    procedure btnPregledajClick(Sender: TObject);
+    procedure btnPreuzmiClick(Sender: TObject);
+    procedure btnPosaljeClick(Sender: TObject);
+    procedure btnPodeliClick(Sender: TObject);
+    procedure Loaded; override;
+    procedure FrameEnter(Sender: TObject);
   private
-    { Private declarations }
+    procedure Popuni;
   public
-    { Public declarations }
   end;
 
 implementation
 
 {$R *.fmx}
+
+uses
+  fraHome;
+
+procedure TfraFiskalniRacun.Popuni;
+var
+  Lvls: array[0..3] of TLabel;
+  Rvls: array[0..3] of TLabel;
+  i, r, idx: Integer;
+  G: TSesijaRacun;
+  nadjen: Boolean;
+begin
+  // Nadji racun iz sesije po broju
+  nadjen := False;
+  idx := -1;
+  for i := 0 to High(SesijaRacuni) do
+    if SesijaRacuni[i].BrojRacuna = AktivniRacunBroj then
+    begin
+      idx := i;
+      nadjen := True;
+      Break;
+    end;
+  if nadjen then
+    G := SesijaRacuni[idx];
+
+  // Header
+  lblPOKSI.Text := 'POKSI';
+  if nadjen then
+  begin
+    lblRacunBr.Text := 'Racun br: ' + G.BrojRacuna;
+    lblDatum.Text   := G.Datum;
+  end
+  else
+  begin
+    lblRacunBr.Text := 'Racun br: -';
+    lblDatum.Text   := FormatDateTime('dd.mm.yyyy - hh:nn', Now);
+  end;
+  lblPenzion.Text := 'Pansion za ku' + #263 + 'ne ljubimce';
+
+  // Prodavac
+  lblProd1L.Text := 'POKSI d.o.o';      lblProd1R.Text := 'PIB: 109876543';
+  lblProd2L.Text := 'Kralja Petra 12, Kragujevac'; lblProd2R.Text := 'MB: 21567890';
+
+  // Kupac
+  lblKup1L.Text := LoggedUsername;      lblKup1R.Text := 'ID: ' + LoggedUserId.ToString;
+  lblKup2L.Text := LoggedUserEmail;     lblKup2R.Text := LoggedUserPhone;
+
+  // Stavke
+  Lvls[0]:=lblS1L; Lvls[1]:=lblS2L; Lvls[2]:=lblS3L; Lvls[3]:=lblS4L;
+  Rvls[0]:=lblS1R; Rvls[1]:=lblS2R; Rvls[2]:=lblS3R; Rvls[3]:=lblS4R;
+  for i := 0 to 3 do begin Lvls[i].Text := ''; Rvls[i].Text := ''; end;
+
+  if nadjen then
+  begin
+    // Prvi red: ljubimac + boks
+    if G.LjubimacIme <> '' then
+      Lvls[0].Text := 'Ljubimac: ' + G.LjubimacIme + ' (' + G.LjubimacBreed + ')'
+    else
+      Lvls[0].Text := 'Ljubimac: -';
+    Rvls[0].Text := G.BoksText;
+
+    // Smestaj + obroci kao red
+    Lvls[1].Text := 'Sme' + #353 + 'taj + obroci (' + G.Noci.ToString + ' no' + #263 + 'i)';
+    Rvls[1].Text := '$' + FormatFloat('0.00', G.Smestaj);
+
+    // Usluge (saberi u jedan red ili prikazi prve dve)
+    r := 2;
+    for i := 0 to High(G.Stavke) do
+    begin
+      if r > 3 then Break;
+      Lvls[r].Text := G.Stavke[i].Naziv + ' (x' + G.Stavke[i].Kolicina.ToString + ')';
+      Rvls[r].Text := '$' + FormatFloat('0.00', G.Stavke[i].Cena);
+      Inc(r);
+    end;
+
+    // Iznosi iz sacuvanog racuna
+    lblMedjutimT.Text := 'Me' + #273 + 'uzbir';
+    lblMedjutimV.Text := '$' + FormatFloat('0.00', G.Smestaj + G.UslugeIznos);
+    lblPopustT.Text := 'Popust';
+    if G.Popust > 0 then
+      lblPopustV.Text := '-$' + FormatFloat('0.00', G.Popust)
+    else
+      lblPopustV.Text := '$0.00';
+    lblPDVT.Text := 'PDV (10%)';
+    lblPDVV.Text := '$' + FormatFloat('0.00', G.Porez);
+    lblUkupnoT.Text := 'UKUPNO';
+    lblUkupnoV.Text := '$' + FormatFloat('0.00', G.Ukupno);
+
+    lblNacinV.Text := G.Metoda;
+  end
+  else
+  begin
+    // Fallback (nema racuna) - prazno
+    lblMedjutimT.Text := 'Me' + #273 + 'uzbir'; lblMedjutimV.Text := '$0.00';
+    lblPopustT.Text := 'Popust'; lblPopustV.Text := '$0.00';
+    lblPDVT.Text := 'PDV (10%)'; lblPDVV.Text := '$0.00';
+    lblUkupnoT.Text := 'UKUPNO'; lblUkupnoV.Text := '$0.00';
+    lblNacinV.Text := TfraPlacanje_OdabranaMetoda;
+  end;
+
+  lblStatusT.Text := 'Status';
+  lblStatusV.Text := 'PLA' + #262 + 'ENO';
+
+  if nadjen then
+    lblQRSub.Text := 'POK QR - ' + G.BrojRacuna
+  else
+    lblQRSub.Text := '';
+end;
+
+procedure TfraFiskalniRacun.Loaded;
+begin
+  inherited;
+  Popuni;
+end;
+
+procedure TfraFiskalniRacun.FrameEnter(Sender: TObject);
+begin
+  Popuni;
+end;
+
+procedure TfraFiskalniRacun.btnNazadClick(Sender: TObject);
+begin
+  TNavFrames.Back;
+end;
+
+procedure TfraFiskalniRacun.btnPregledajClick(Sender: TObject);
+begin
+  // Ocisti korpu i vrati na home (rezervacija zavrsena)
+  KorpaOcisti;
+  TNavFrames.Go(TFrame5.Create(nil));
+end;
+
+procedure TfraFiskalniRacun.btnPreuzmiClick(Sender: TObject);
+begin
+  ShowMessage('Ra' + #269 + 'un preuzet (PDF).');
+end;
+
+procedure TfraFiskalniRacun.btnPosaljeClick(Sender: TObject);
+begin
+  ShowMessage('Ra' + #269 + 'un poslat na ' + LoggedUserEmail);
+end;
+
+procedure TfraFiskalniRacun.btnPodeliClick(Sender: TObject);
+begin
+  ShowMessage('Deljenje ra' + #269 + 'una...');
+end;
 
 end.
