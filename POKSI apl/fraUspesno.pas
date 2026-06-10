@@ -65,7 +65,6 @@ begin
   lblEmailSub.Text := 'Poslato na ' + LoggedUserEmail;
   lblSMSSub.Text   := 'Poslato na ' + LoggedUserPhone;
 
-  // Dinamicki tekst za radni nalog (umesto hardkodiranog "boks P7")
   if IzabraniBoksText <> '' then
     lblOsobljeSub.Text := 'Radni nalog generisan za ' + IzabraniBoksText
   else
@@ -75,7 +74,6 @@ end;
 procedure TfraUspesno.Loaded;
 begin
   inherited;
-  // Dugme za nazad (vodi na pocetni/Home ekran posle zavrsene rezervacije)
   if not Assigned(FBtnNazad) then
   begin
     FBtnNazad := TButton.Create(Self);
@@ -84,7 +82,7 @@ begin
     FBtnNazad.Position.Y := 12;
     FBtnNazad.Width := 44;
     FBtnNazad.Height := 40;
-    FBtnNazad.Text := #10094;  // ‹
+    FBtnNazad.Text := #10094;
     FBtnNazad.Font.Size := 18;
     FBtnNazad.OnClick := btnNazadClick;
     FBtnNazad.BringToFront;
@@ -104,7 +102,6 @@ end;
 
 procedure TfraUspesno.btnNazadClick(Sender: TObject);
 begin
-  // Rezervacija je zavrsena - ocisti korpu i vrati na pocetni stack
   KorpaOcisti;
   TNavFrames.Back;
 end;

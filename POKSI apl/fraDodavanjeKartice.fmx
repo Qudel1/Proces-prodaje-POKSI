@@ -18,7 +18,6 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
       Size.PlatformDefault = False
       TabOrder = 0
       object btnZatvori: TButton
-        OnClick = btnZatvoriClick
         Align = Left
         Position.X = 16.000000000000000000
         Position.Y = 10.000000000000000000
@@ -29,6 +28,7 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
         Text = 'X'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.Trimming = None
+        OnClick = btnZatvoriClick
       end
       object lblTitle: TLabel
         Align = Client
@@ -63,7 +63,6 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
         YRadius = 12.000000000000000000
       end
       object btnNastavi: TButton
-        OnClick = btnNastaviClick
         Align = Client
         Size.Width = 358.000000000000000000
         Size.Height = 52.000000000000000000
@@ -74,6 +73,7 @@ object fraDodavanjeKartice: TfraDodavanjeKartice
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.Trimming = None
+        OnClick = btnNastaviClick
       end
     end
     object vertScroll: TVertScrollBox

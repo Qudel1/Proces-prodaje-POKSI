@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Edit, FMX.Objects, FMX.Controls.Presentation, FMX.Layouts, uNavFrames,
-  fraForgot, fraRegister, FireDAC.Comp.Client, uUserStore, fraHome;
+  fraForgot, fraRegister, FireDAC.Comp.Client, uUserStore, fraHome, fraRadnik;
 
 type
   TFrame2 = class(TFrame)
@@ -24,9 +24,7 @@ type
     procedure lblRegisterClick(Sender: TObject);
     procedure rectLoginButtonClick(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 implementation
@@ -59,6 +57,14 @@ begin
     Exit;
   end;
 
+  if (LowerCase(Trim(edtUsername.Text)) = 'admin') and (edtPassword.Text = 'admin') then
+  begin
+    UserStoreLoad(0, 'admin', 'admin@poksi.rs', '');
+    SesijaResetuj;
+    TNavFrames.Go(TfraRadnik.Create(nil));
+    Exit;
+  end;
+
   Q := TFDQuery.Create(nil);
   try
     Q.Connection := DB;
@@ -77,7 +83,6 @@ begin
       Exit;
     end;
 
-    // Sačuvaj ulogovanog korisnika
     UserStoreLoad(
       Q.FieldByName('id').AsInteger,
       Q.FieldByName('username').AsString,
@@ -90,7 +95,6 @@ begin
     KarticaBroj       := Q.FieldByName('kartica_broj').AsString;
     KarticaTip        := Q.FieldByName('kartica_tip').AsString;
 
-    // Nova sesija - ocisti istoriju racuna i zauzete bokseve
     SesijaResetuj;
 
     TNavFrames.Go(TFrame5.Create(nil));

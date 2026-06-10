@@ -20,6 +20,7 @@ type
     FDConnection1: TFDConnection;
     procedure FormCreate(Sender: TObject);
   private
+    procedure DodajKolonu(const ATabela, AKolona, ADefinicija: string);
     procedure LoadPetsFromDB;
   public
   end;
@@ -35,6 +36,8 @@ procedure TForm5.FormCreate(Sender: TObject);
 var
   Stream: TResourceStream;
 begin
+  FDConnection1.Params.Values['Database'] :=
+    ExtractFilePath(ParamStr(0)) + 'users.db';
   FDConnection1.Connected := True;
   DB := FDConnection1;
 
@@ -48,32 +51,13 @@ begin
     'password TEXT)';
   FDQuery1.ExecSQL;
 
-  // Dodaj kolone prezime/adresa ako ne postoje (za starije baze)
-  try
-    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN prezime TEXT';
-    FDQuery1.ExecSQL;
-  except
-  end;
-  try
-    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN adresa TEXT';
-    FDQuery1.ExecSQL;
-  except
-  end;
-  try
-    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN ime TEXT';
-    FDQuery1.ExecSQL;
-  except
-  end;
-  try
-    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN kartica_broj TEXT';
-    FDQuery1.ExecSQL;
-  except
-  end;
-  try
-    FDQuery1.SQL.Text := 'ALTER TABLE users ADD COLUMN kartica_tip TEXT';
-    FDQuery1.ExecSQL;
-  except
-  end;
+
+  DodajKolonu('users', 'prezime', 'TEXT');
+  DodajKolonu('users', 'adresa', 'TEXT');
+  DodajKolonu('users', 'ime', 'TEXT');
+  DodajKolonu('users', 'kartica_broj', 'TEXT');
+  DodajKolonu('users', 'kartica_tip', 'TEXT');
+  DodajKolonu('users', 'uloga', 'TEXT DEFAULT ''korisnik''');
 
   FDQuery1.SQL.Text :=
     'CREATE TABLE IF NOT EXISTS pets (' +
@@ -113,6 +97,9 @@ begin
     'FOREIGN KEY(korpa_id) REFERENCES korpa(id),' +
     'FOREIGN KEY(usluga_id) REFERENCES usluge(id))';
   FDQuery1.ExecSQL;
+
+  DodajKolonu('stavka_korpe', 'rezervacija_id', 'INTEGER');
+  DodajKolonu('stavka_korpe', 'naziv', 'TEXT');
 
   FDQuery1.SQL.Text :=
     'CREATE TABLE IF NOT EXISTS boksevi (' +
@@ -291,6 +278,23 @@ begin
 
   TNavFrames.Init(layHost);
   TNavFrames.Go(TFrame1.Create(nil));
+end;
+
+procedure TForm5.DodajKolonu(const ATabela, AKolona, ADefinicija: string);
+begin
+  FDQuery1.SQL.Text :=
+    'SELECT COUNT(*) FROM pragma_table_info(' + QuotedStr(ATabela) + ') ' +
+    'WHERE name = ' + QuotedStr(AKolona);
+  FDQuery1.Open;
+  if FDQuery1.Fields[0].AsInteger = 0 then
+  begin
+    FDQuery1.Close;
+    FDQuery1.SQL.Text :=
+      'ALTER TABLE ' + ATabela + ' ADD COLUMN ' + AKolona + ' ' + ADefinicija;
+    FDQuery1.ExecSQL;
+  end
+  else
+    FDQuery1.Close;
 end;
 
 procedure TForm5.LoadPetsFromDB;

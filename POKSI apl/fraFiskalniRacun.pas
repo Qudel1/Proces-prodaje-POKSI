@@ -111,7 +111,6 @@ var
   G: TSesijaRacun;
   nadjen: Boolean;
 begin
-  // Nadji racun iz sesije po broju
   nadjen := False;
   idx := -1;
   for i := 0 to High(SesijaRacuni) do
@@ -124,7 +123,6 @@ begin
   if nadjen then
     G := SesijaRacuni[idx];
 
-  // Header
   lblPOKSI.Text := 'POKSI';
   if nadjen then
   begin
@@ -138,33 +136,27 @@ begin
   end;
   lblPenzion.Text := 'Pansion za ku' + #263 + 'ne ljubimce';
 
-  // Prodavac
   lblProd1L.Text := 'POKSI d.o.o';      lblProd1R.Text := 'PIB: 109876543';
   lblProd2L.Text := 'Kralja Petra 12, Kragujevac'; lblProd2R.Text := 'MB: 21567890';
 
-  // Kupac
   lblKup1L.Text := LoggedUsername;      lblKup1R.Text := 'ID: ' + LoggedUserId.ToString;
   lblKup2L.Text := LoggedUserEmail;     lblKup2R.Text := LoggedUserPhone;
 
-  // Stavke
   Lvls[0]:=lblS1L; Lvls[1]:=lblS2L; Lvls[2]:=lblS3L; Lvls[3]:=lblS4L;
   Rvls[0]:=lblS1R; Rvls[1]:=lblS2R; Rvls[2]:=lblS3R; Rvls[3]:=lblS4R;
   for i := 0 to 3 do begin Lvls[i].Text := ''; Rvls[i].Text := ''; end;
 
   if nadjen then
   begin
-    // Prvi red: ljubimac + boks
     if G.LjubimacIme <> '' then
       Lvls[0].Text := 'Ljubimac: ' + G.LjubimacIme + ' (' + G.LjubimacBreed + ')'
     else
       Lvls[0].Text := 'Ljubimac: -';
     Rvls[0].Text := G.BoksText;
 
-    // Smestaj + obroci kao red
     Lvls[1].Text := 'Sme' + #353 + 'taj + obroci (' + G.Noci.ToString + ' no' + #263 + 'i)';
     Rvls[1].Text := '$' + FormatFloat('0.00', G.Smestaj);
 
-    // Usluge (saberi u jedan red ili prikazi prve dve)
     r := 2;
     for i := 0 to High(G.Stavke) do
     begin
@@ -174,7 +166,6 @@ begin
       Inc(r);
     end;
 
-    // Iznosi iz sacuvanog racuna
     lblMedjutimT.Text := 'Me' + #273 + 'uzbir';
     lblMedjutimV.Text := '$' + FormatFloat('0.00', G.Smestaj + G.UslugeIznos);
     lblPopustT.Text := 'Popust';
@@ -191,7 +182,6 @@ begin
   end
   else
   begin
-    // Fallback (nema racuna) - prazno
     lblMedjutimT.Text := 'Me' + #273 + 'uzbir'; lblMedjutimV.Text := '$0.00';
     lblPopustT.Text := 'Popust'; lblPopustV.Text := '$0.00';
     lblPDVT.Text := 'PDV (10%)'; lblPDVV.Text := '$0.00';
@@ -226,7 +216,6 @@ end;
 
 procedure TfraFiskalniRacun.btnPregledajClick(Sender: TObject);
 begin
-  // Ocisti korpu i vrati na home (rezervacija zavrsena)
   KorpaOcisti;
   TNavFrames.Go(TFrame5.Create(nil));
 end;

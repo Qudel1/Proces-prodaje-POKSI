@@ -23,9 +23,7 @@ type
     procedure lblForgotClick(Sender: TObject);
     procedure lblRegisterClick(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

@@ -32,7 +32,8 @@ uses
   fraRezervacijaPocetak in 'fraRezervacijaPocetak.pas' {Frame9: TFrame},
   uKorpa in 'uKorpa.pas',
   fraIstorijaRacuna in 'fraIstorijaRacuna.pas' {fraIstorijaRacuna: TFrame},
-  fraKorpa in 'fraKorpa.pas' {fraKorpa: TFrame};
+  fraKorpa in 'fraKorpa.pas' {fraKorpa: TFrame},
+  fraRadnik in 'fraRadnik.pas' {fraRadnik: TFrame};
 
 {$R *.res}
 

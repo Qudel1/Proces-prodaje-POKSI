@@ -55,7 +55,6 @@ begin
   clean := '';
   for i := 1 to Length(ABroj) do
     if CharInSet(ABroj[i], ['0'..'9']) then clean := clean + ABroj[i];
-  // Vrlo gruba detekcija: 4 = Visa, 5 = Mastercard
   if (Length(clean) > 0) and (clean[1] = '4') then
     Result := 'Visa'
   else
@@ -64,7 +63,6 @@ end;
 
 procedure TfraDodavanjeKartice.Popuni;
 begin
-  // Ako kartica vec postoji, prikazi postojeci broj radi izmene
   if KarticaBroj <> '' then
     editBrojKartice.Text := KarticaBroj;
 end;
@@ -97,10 +95,8 @@ begin
 
   KarticaBroj := editBrojKartice.Text;
   KarticaTip  := PrepoznajTip(editBrojKartice.Text);
-  // U rezervaciji imamo jednu opciju "Kartica"
   TfraPlacanje_OdabranaMetoda := 'Kartica';
 
-  // Sacuvaj karticu za ovaj nalog (pamti se kao login)
   if LoggedUserId > 0 then
   begin
     Q := TFDQuery.Create(nil);

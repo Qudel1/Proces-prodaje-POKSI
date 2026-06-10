@@ -20,17 +20,18 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
       object lblBackArrow: TButton
         Align = Left
         Position.X = 16.000000000000000000
-        Position.Y = 8.000000000000000000
+        Position.Y = 12.000000000000000000
         Size.Width = 44.000000000000000000
-        Size.Height = 40.000000000000000000
+        Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 18.000000000000000000
         Text = #10094
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Trimming = None
         OnClick = lblBackArrowClick
       end
       object lblTitle: TLabel
         Align = Client
-        Size.Width = 326.000000000000000000
+        Size.Width = 314.000000000000000000
         Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
@@ -365,8 +366,8 @@ object fraDetaljiUsluge: TfraDetaljiUsluge
         Size.Height = 80.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 12
-        Viewport.Width = 358.000000000000000000
-        Viewport.Height = 80.000000000000000000
+        Viewport.Width = 354.000000000000000000
+        Viewport.Height = 76.000000000000000000
       end
     end
   end

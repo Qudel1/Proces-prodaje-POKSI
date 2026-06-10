@@ -1,4 +1,4 @@
-unit fraPredracun;
+﻿unit fraPredracun;
 
 interface
 
@@ -72,7 +72,7 @@ type
     procedure FrameEnter(Sender: TObject);
   private
     FBrojRez: string;
-    FSmestaj: Double;   // smestaj + obroci
+    FSmestaj: Double;
     FUsluge:  Double;
     FPopust:  Double;
     FPorez:   Double;
@@ -113,7 +113,6 @@ var
 begin
   PetIdx := ActivePetIndex;
 
-  // Korisnik + ljubimac
   lblKorisnikIme.Text   := LoggedUsername;
   lblKorisnikEmail.Text := LoggedUserEmail;
   if (PetIdx >= 0) and (PetIdx <= High(Pets)) and (Pets[PetIdx].Id <> 0) then
@@ -124,7 +123,6 @@ begin
   else
     lblKorisnikLjubimacInfo.Text := '';
 
-  // Boravak
   Noci := BrojNoci;
   if (KalendarDatumOd > 0) and (KalendarDatumDo > 0) then
     lblDatumVal.Text := FormatDateTime('dd/mm', KalendarDatumOd) + ' - ' +
@@ -134,7 +132,6 @@ begin
   lblBoksVal.Text := IzabraniBoksText;
   lblTrajanjeVal.Text := Noci.ToString + ' no' + #263 + 'i';
 
-  // Usluge - mapiraj na 3 reda
   rects[0]:=rectHrana; rects[1]:=rectKupanje; rects[2]:=rectVeterinar;
   txts[0]:=lblHranaText; txts[1]:=lblKupanjeText; txts[2]:=lblVeterinarText;
   cenas[0]:=lblHranaCena; cenas[1]:=lblKupanjeCena; cenas[2]:=lblVeterinarCena;
@@ -151,8 +148,6 @@ begin
     Inc(r);
   end;
 
-  // ── Iznosi ──
-  // Smestaj: $3 po noci. Obavezan obrok: $2 po danu (svaki dan boravka).
   Smestaj := Noci * 3.0;
   Obroci  := Noci * 2.0;
   Usluge  := KorpaUkupno;
@@ -182,7 +177,6 @@ begin
   UkupanIznos := Ukupno;
   PrimenjeniPopust := Popust;
 
-  // Sacuvaj razlaganje za fiskalni racun / istoriju
   FSmestaj := Smestaj + Obroci;
   FUsluge  := Usluge;
   FPopust  := Popust;
@@ -190,7 +184,6 @@ begin
   FUkupno  := Ukupno;
   FNoci    := Noci;
 
-  // Broj rezervacije - nasumican, pamti se za ovu sesiju predracuna
   if FBrojRez = '' then
     FBrojRez := 'POK-' + FormatDateTime('yyyy', Now) + '-' +
                 Format('%.6d', [Random(1000000)]);
@@ -208,9 +201,6 @@ begin
   try
     Q.Connection := DB;
 
-    // rezervacija
-    // boks_id izostavljamo (default NULL) - nemamo mapiranje oznake (P2) na ID.
-    // pet_id ukljucujemo samo ako je validan, inace ide kao NULL (default).
     if (PetIdx >= 0) and (PetIdx <= High(Pets)) and (Pets[PetIdx].Id <> 0) then
     begin
       Q.SQL.Text :=
@@ -227,14 +217,26 @@ begin
     Q.ParamByName('nap').AsString := IzabraniBoksText;
     Q.ExecSQL;
 
-    // dobij id
     Q.SQL.Text := 'SELECT last_insert_rowid()';
     Q.Open;
     rezId := Q.Fields[0].AsInteger;
     Q.Close;
     AktivnaRezervacijaId := rezId;
 
-    // placanje
+    for i := 0 to High(KorpaItems) do
+    begin
+      if KorpaItems[i].ServiceId = 0 then Continue;
+      Q.SQL.Text :=
+        'INSERT INTO stavka_korpe (usluga_id, naziv, kolicina, cena_stavke, rezervacija_id) ' +
+        'VALUES (:usl, :naz, :kol, :cena, :rez)';
+      Q.ParamByName('usl').AsInteger := KorpaItems[i].ServiceId;
+      Q.ParamByName('naz').AsString  := KorpaItems[i].Naziv;
+      Q.ParamByName('kol').AsInteger := KorpaItems[i].Kolicina;
+      Q.ParamByName('cena').AsFloat  := KorpaItems[i].Cena;
+      Q.ParamByName('rez').AsInteger := rezId;
+      Q.ExecSQL;
+    end;
+
     Q.SQL.Text :=
       'INSERT INTO placanje (rezervacija_id, iznos, metoda, datum, status) ' +
       'VALUES (:rez, :iznos, :metoda, :datum, ''placeno'')';
@@ -249,7 +251,6 @@ begin
     placId := Q.Fields[0].AsInteger;
     Q.Close;
 
-    // faktura
     Q.SQL.Text :=
       'INSERT INTO faktura (placanje_id, br_fakture, ukupan_iznos, datum_izdavanja, status) ' +
       'VALUES (:plac, :br, :iznos, :datum, ''izdata'')';
@@ -261,7 +262,6 @@ begin
 
     Result := True;
 
-    // Oznaci boks kao zauzet u ovoj sesiji (npr "Unutrasnji P7" -> "P7")
     if IzabraniBoksText <> '' then
     begin
       i := IzabraniBoksText.LastIndexOf(' ');
@@ -271,7 +271,6 @@ begin
         SesijaDodajZauzet(IzabraniBoksText);
     end;
 
-    // Sastavi kompletan racun i sacuvaj u istoriju SESIJE (sa svim detaljima)
     SacuvajURacunSesije;
   except
     on E: Exception do
@@ -310,7 +309,6 @@ begin
   R.Ukupno   := FUkupno;
   R.Metoda   := TfraPlacanje_OdabranaMetoda;
 
-  // Kopiraj stavke iz korpe
   n := 0;
   SetLength(R.Stavke, KorpaBrojStavki);
   for i := 0 to High(KorpaItems) do

@@ -1,8 +1,8 @@
 object fraKalendar: TfraKalendar
-  OnEnter = FrameEnter
   Size.Width = 390.000000000000000000
   Size.Height = 844.000000000000000000
   Size.PlatformDefault = False
+  OnEnter = FrameEnter
   object layoutRoot: TLayout
     Align = Client
     Size.Width = 390.000000000000000000
@@ -19,19 +19,20 @@ object fraKalendar: TfraKalendar
       Size.PlatformDefault = False
       TabOrder = 0
       object lblX: TButton
-        OnClick = lblXClick
         Align = Left
         Position.X = 16.000000000000000000
-        Position.Y = 8.000000000000000000
+        Position.Y = 12.000000000000000000
         Size.Width = 44.000000000000000000
-        Size.Height = 40.000000000000000000
+        Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 18.000000000000000000
         Text = #10094
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Trimming = None
+        OnClick = lblXClick
       end
       object lblTitle: TLabel
         Align = Client
-        Size.Width = 326.000000000000000000
+        Size.Width = 314.000000000000000000
         Size.Height = 44.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
@@ -70,7 +71,6 @@ object fraKalendar: TfraKalendar
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 14.000000000000000000
-          Text = ''
         end
         object lblDolazakDatum: TLabel
           Align = Client
@@ -101,7 +101,6 @@ object fraKalendar: TfraKalendar
           Size.Height = 48.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Size = 14.000000000000000000
-          Text = ''
         end
         object lblOdlazakDatum: TLabel
           Align = Client
@@ -125,7 +124,6 @@ object fraKalendar: TfraKalendar
       Size.PlatformDefault = False
       TabOrder = 2
       object btnPrevMesec: TButton
-        OnClick = btnPrevMesecClick
         Align = Left
         Position.X = 16.000000000000000000
         Position.Y = 4.000000000000000000
@@ -136,6 +134,7 @@ object fraKalendar: TfraKalendar
         Text = '<'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.Trimming = None
+        OnClick = btnPrevMesecClick
       end
       object lblMesecGodina: TLabel
         Align = Client
@@ -148,7 +147,6 @@ object fraKalendar: TfraKalendar
         Text = 'December 2021'
       end
       object btnNextMesec: TButton
-        OnClick = btnNextMesecClick
         Align = Right
         Position.X = 338.000000000000000000
         Position.Y = 4.000000000000000000
@@ -159,6 +157,7 @@ object fraKalendar: TfraKalendar
         Text = '>'
         TextSettings.Font.Size = 16.000000000000000000
         TextSettings.Trimming = None
+        OnClick = btnNextMesecClick
       end
     end
     object layoutDaniNedelje: TLayout

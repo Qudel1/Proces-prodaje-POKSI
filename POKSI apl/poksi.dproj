@@ -317,20 +317,30 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="uKorpa.pas"/>
+        <DCCReference Include="fraIstorijaRacuna.pas">
+            <Form>fraIstorijaRacuna</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="fraKorpa.pas">
             <Form>fraKorpa</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <RcItem Include="D:\Pictures\guster.png">
+        <DCCReference Include="fraRadnik.pas">
+            <Form>fraRadnik</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <RcItem Include="resources\guster.jpg">
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>PngImage_2</ResourceId>
         </RcItem>
-        <RcItem Include="D:\Pictures\macka.png">
+        <RcItem Include="resources\macka.jpg">
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>PngImage_3</ResourceId>
         </RcItem>
-        <RcItem Include="D:\Pictures\pas.png">
+        <RcItem Include="resources\pas.jpg">
             <ResourceType>RCDATA</ResourceType>
             <ResourceId>PngImage_1</ResourceId>
         </RcItem>

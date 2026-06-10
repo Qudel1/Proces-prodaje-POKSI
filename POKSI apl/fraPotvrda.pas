@@ -30,9 +30,7 @@ type
     rectRed5: TRectangle;
     lblRed5: TLabel;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 implementation

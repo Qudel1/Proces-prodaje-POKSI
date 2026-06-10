@@ -35,7 +35,6 @@ procedure KorpaDodaj(AId: Integer; const ANaziv, AKat: string;
 var
   i, FreeIdx: Integer;
 begin
-  // Provjeri da li vec postoji
   for i := 0 to High(KorpaItems) do
   begin
     if KorpaItems[i].ServiceId = AId then
@@ -45,7 +44,6 @@ begin
     end;
   end;
 
-  // Nadji slobodan slot
   FreeIdx := -1;
   for i := 0 to High(KorpaItems) do
     if KorpaItems[i].ServiceId = 0 then
@@ -54,7 +52,7 @@ begin
       Break;
     end;
 
-  if FreeIdx = -1 then Exit; // Korpa puna
+  if FreeIdx = -1 then Exit;
 
   KorpaItems[FreeIdx].ServiceId  := AId;
   KorpaItems[FreeIdx].Naziv      := ANaziv;

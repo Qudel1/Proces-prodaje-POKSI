@@ -16,9 +16,7 @@ type
     Label2: TLabel;
     procedure Rectangle1Click(Sender: TObject);
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

@@ -77,8 +77,6 @@ implementation
 uses
   fraKorpa;
 
-// ── Opcije po kategoriji ───────────────────────────────────────────────────────
-
 procedure TfraDetaljiUsluge.PostaviOpcijeZaKategoriju(const AKat: string);
 
   procedure SetOp(AIdx: Integer; const ANaz: string; ACena: Double);
@@ -105,7 +103,6 @@ procedure TfraDetaljiUsluge.PostaviOpcijeZaKategoriju(const AKat: string);
   end;
 
 begin
-  // Reset svih opcija
   SetOp(0, '', 0); SetOp(1, '', 0); SetOp(2, '', 0); SetOp(3, '', 0);
 
   if AKat = 'Salon' then
@@ -138,7 +135,6 @@ begin
   end
   else
   begin
-    // Genericki za ostale
     SetOp(0, 'Osnovna usluga',        0);
     SetOp(1, 'Premium paket',        10);
   end;
@@ -149,7 +145,6 @@ begin
   ApplyToRect(rectOpcija4, lblOpcija4Text, lblOpcija4Cena, 3);
 end;
 
-// ── RecalcCena ─────────────────────────────────────────────────────────────────
 
 procedure TfraDetaljiUsluge.RecalcCena;
 var
@@ -161,7 +156,6 @@ begin
     'Dodaj u korpu ' + #8212 + ' $' + FormatFloat('0.##', Total);
 end;
 
-// ── ToggleOpcija ───────────────────────────────────────────────────────────────
 
 procedure TfraDetaljiUsluge.ToggleOpcija(ARectangle: TRectangle; AOpcIdx: Integer);
 var
@@ -183,7 +177,6 @@ begin
   RecalcCena;
 end;
 
-// ── SetUsluga ─────────────────────────────────────────────────────────────────
 
 procedure TfraDetaljiUsluge.SetUsluga(AId: Integer;
   const ANaziv, AKat, AOpisKrat: string; ACena: Double);
@@ -197,20 +190,17 @@ begin
   lblNazivUsluge.Text := ANaziv;
   lblOpisTekst.Text   := AOpisKrat;
 
-  // Reset stroke na svim opcijama
   rectOpcija1.Stroke.Kind := TBrushKind.None;
   rectOpcija2.Stroke.Kind := TBrushKind.None;
   rectOpcija3.Stroke.Kind := TBrushKind.None;
   rectOpcija4.Stroke.Kind := TBrushKind.None;
 
-  // Postavi opcije za ovu kategoriju
   PostaviOpcijeZaKategoriju(AKat);
 
   memoNapomene.Text := '';
   RecalcCena;
 end;
 
-// ── Events ─────────────────────────────────────────────────────────────────────
 
 procedure TfraDetaljiUsluge.lblBackArrowClick(Sender: TObject);
 begin
@@ -223,7 +213,7 @@ var
 begin
   TotalCena := FBaseCena + FDodatakCena;
   KorpaDodaj(FServiceId, FNaziv, FKategorija, TotalCena, memoNapomene.Text);
-  TNavFrames.Back; // Vrati se na usluge da mozes dodati jos
+  TNavFrames.Back;
 end;
 
 procedure TfraDetaljiUsluge.rectOpcija1Click(Sender: TObject);

@@ -179,12 +179,12 @@ begin
     ShowMessage('Prvo izaberi ljubimca!');
     Exit;
   end;
-  TNavFrames.Go(TFrame6.Create(nil));   // ← ide na usluge
+  TNavFrames.Go(TFrame6.Create(nil));
 end;
 
 procedure TFrame9.Image2Click(Sender: TObject);
 begin
-  TNavFrames.Go(TFrame5.Create(nil));   // Home (kucica)
+  TNavFrames.Go(TFrame5.Create(nil));
 end;
 
 procedure TFrame9.btnIstorijaClick(Sender: TObject);

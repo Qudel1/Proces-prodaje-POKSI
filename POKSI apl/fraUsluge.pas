@@ -83,7 +83,6 @@ implementation
 uses
   fraDetaljiUsluge, fraKorpa, fraHome, fraRezervacijaPocetak;
 
-// ── DB ────────────────────────────────────────────────────────────────────────
 
 procedure TFrame6.LoadServicesFromDB;
 begin
@@ -114,7 +113,6 @@ begin
   FServices[5].Opis := 'Senior formula, 3 obroka dnevno';
 end;
 
-// ── Grid ──────────────────────────────────────────────────────────────────────
 
 procedure TFrame6.RefreshGrid;
 var
@@ -134,12 +132,11 @@ begin
       if (FServices[i].Kategorija = Cats[j]) and (FServices[i].Cena < MinCena[j]) then
         MinCena[j] := FServices[i].Cena;
 
-  // Mapiranje na labele iz fmx
-  if not Assigned(Label7) then Exit;
-  LblNaz[0]  := Label7;  LblNaz[1]  := Label9;
-  LblNaz[2]  := Label11; LblNaz[3]  := Label3;
-  LblCena[0] := Label8;  LblCena[1] := Label10;
-  LblCena[2] := Label4;  LblCena[3] := Label5;
+  if not Assigned(Label3) then Exit;
+  LblNaz[0]  := Label3;  LblNaz[1]  := Label5;
+  LblNaz[2]  := Label7;  LblNaz[3]  := Label9;
+  LblCena[0] := Label4;  LblCena[1] := Label6;
+  LblCena[2] := Label8;  LblCena[3] := Label10;
 
   for i := 0 to 3 do
   begin
@@ -154,7 +151,6 @@ begin
   end;
 end;
 
-// ── List ──────────────────────────────────────────────────────────────────────
 
 procedure TFrame6.RefreshList;
 var
@@ -177,7 +173,7 @@ begin
       Item := TListBoxItem.Create(ListBox1);
       Item.Text := FServices[i].Naziv;
       Item.ItemData.Detail := FServices[i].Opis;
-      Item.Tag := i;  // index u FServices
+      Item.Tag := i;
       ListBox1.AddObject(Item);
 
       LblC := TLabel.Create(Item);
@@ -197,7 +193,6 @@ begin
   end;
 end;
 
-// ── Kategorija ────────────────────────────────────────────────────────────────
 
 procedure TFrame6.SetKategorija(const AKat: string);
 begin
@@ -205,7 +200,6 @@ begin
   RefreshList;
 end;
 
-// ── OpenDetalji ───────────────────────────────────────────────────────────────
 
 procedure TFrame6.OpenDetalji(AIdx: Integer);
 var
@@ -223,7 +217,6 @@ begin
   TNavFrames.Go(Fra);
 end;
 
-// ── Loaded / FrameEnter ───────────────────────────────────────────────────────
 
 procedure TFrame6.Loaded;
 begin
@@ -244,7 +237,6 @@ begin
   RefreshGrid;
 end;
 
-// ── Events ────────────────────────────────────────────────────────────────────
 
 procedure TFrame6.Button1Click(Sender: TObject);
 begin SetKategorija('Sve'); end;
@@ -279,13 +271,11 @@ end;
 
 procedure TFrame6.Image3Click(Sender: TObject);
 begin
-  // Kucica -> Home
   TNavFrames.Go(TFrame5.Create(nil));
 end;
 
 procedure TFrame6.Image4Click(Sender: TObject);
 begin
-  // Sapica -> Pocetak rezervacije
   TNavFrames.Go(TFrame9.Create(nil));
 end;
 

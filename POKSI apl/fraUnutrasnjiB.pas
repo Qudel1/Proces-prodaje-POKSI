@@ -71,8 +71,8 @@ type
     procedure Loaded; override;
 
   private
-    FZauzeti: array of string;          // npr 'P3','P9','M1','M5'
-    FSelektovan: string;                // trenutno izabran
+    FZauzeti: array of string;
+    FSelektovan: string;
     FRects: array of TRectangle;
     FLbls:  array of TLabel;
 
@@ -98,24 +98,20 @@ begin
   Result := False;
   for i := 0 to High(FZauzeti) do
     if FZauzeti[i] = AOznaka then Exit(True);
-  // Boks zauzet u ovoj sesiji (vec rezervisan)
   if SesijaJeZauzet(AOznaka) then Exit(True);
 end;
 
 function TfraUnutrasnjiB.DozvoljenBoks(const AOznaka: string): Boolean;
 var vrsta: string;
 begin
-  // Vrsta izabranog ljubimca
   vrsta := '';
   if (ActivePetIndex >= 0) and (ActivePetIndex <= High(Pets)) and
      (Pets[ActivePetIndex].Id <> 0) then
     vrsta := LowerCase(Pets[ActivePetIndex].Species);
 
-  // Guster sme samo u spoljasnje bokseve - nijedan unutrasnji nije dozvoljen
   if vrsta = 'guster' then
     Exit(False);
 
-  // P boksevi = psi, M boksevi = macke
   if (Length(AOznaka) > 0) and (AOznaka[1] = 'P') then
     Result := (vrsta = '') or (vrsta = 'pas')
   else if (Length(AOznaka) > 0) and (AOznaka[1] = 'M') then
@@ -141,25 +137,25 @@ begin
   ARect.Stroke.Kind := TBrushKind.None;
   if JeZauzet(AOznaka) then
   begin
-    ARect.Fill.Color := $FFE53935; // crveno = zauzet
+    ARect.Fill.Color := $FFE53935;
     ALbl.FontColor := TAlphaColors.White;
     ARect.HitTest := False;
   end
   else if not DozvoljenBoks(AOznaka) then
   begin
-    ARect.Fill.Color := $FFF0F0F0; // svetlo sivo = nedostupno za vrstu
+    ARect.Fill.Color := $FFF0F0F0;
     ALbl.FontColor := $FFBBBBBB;
     ARect.HitTest := False;
   end
   else if FSelektovan = AOznaka then
   begin
-    ARect.Fill.Color := $FF1C1C2E; // tamno = selektovan
+    ARect.Fill.Color := $FF1C1C2E;
     ALbl.FontColor := TAlphaColors.White;
     ARect.HitTest := True;
   end
   else
   begin
-    ARect.Fill.Color := $FFE8E8E8; // sivo = slobodan
+    ARect.Fill.Color := $FFE8E8E8;
     ALbl.FontColor := $FF333333;
     ARect.HitTest := True;
   end;
@@ -181,7 +177,6 @@ begin
       oznaka := FLbls[i].Text;
       if JeZauzet(oznaka) then Exit;
 
-      // Restrikcija po vrsti ljubimca (unutrasnji boksevi)
       if not DozvoljenBoks(oznaka) then
       begin
         ShowMessage('Ovaj boks nije za izabranog ljubimca.');
@@ -189,7 +184,6 @@ begin
       end;
 
       FSelektovan := oznaka;
-      // Primeni odmah i vrati se na rezervaciju
       IzabraniBoksText := 'Unutra' + #353 + 'nji ' + FSelektovan;
       TNavFrames.Back;
       Exit;
@@ -199,7 +193,6 @@ end;
 procedure TfraUnutrasnjiB.Loaded;
 begin
   inherited;
-  // Hardcoded zauzeti boksevi (moglo bi iz baze)
   FZauzeti := ['P3', 'P9', 'M1', 'M5'];
   FSelektovan := '';
 
@@ -224,7 +217,6 @@ end;
 
 procedure TfraUnutrasnjiB.lblHomeIkonaClick(Sender: TObject);
 begin
-  // Prebaci na spoljasnje boksove (bez gomilanja stacka)
   TNavFrames.GoReplace(TfraSpoljasnjiBoksevi.Create(nil));
 end;
 

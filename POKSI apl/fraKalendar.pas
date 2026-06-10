@@ -136,10 +136,8 @@ var
   R: TRectangle;
   L: TLabel;
 begin
-  // Sakrij dizajnerske celije (D1..D31) - pravimo svoje sa ispravnim rasporedom
   HideDesignCells;
 
-  // Napravi 42 celije (6 nedelja x 7 dana) jednom, rucno pozicionirane
   if FDynBuilt then Exit;
   SetLength(FCellRects, 42);
   SetLength(FCellLbls, 42);
@@ -148,8 +146,8 @@ begin
   begin
     R := TRectangle.Create(Self);
     R.Parent := gridKalendar;
-    R.Position.X := 16 + (i mod 7) * 51;  // poravnato sa zaglavljem dana
-    R.Position.Y := (i div 7) * 48;       // 6 redova
+    R.Position.X := 16 + (i mod 7) * 51;
+    R.Position.Y := (i div 7) * 48;
     R.Width := 51;
     R.Height := 46;
     R.Fill.Kind := TBrushKind.None;
@@ -240,11 +238,9 @@ begin
   lblMesecGodina.Text := mesnaziv[FPrikazMesec] + ' ' + FPrikazGodina.ToString;
   brDana := DaysInAMonth(FPrikazGodina, FPrikazMesec);
 
-  // Koja kolona je 1. u mesecu (DayOfWeek: 1=Ned ... 7=Sub -> offset 0..6)
   prviDan := EncodeDate(FPrikazGodina, FPrikazMesec, 1);
   offset := DayOfWeek(prviDan) - 1;
 
-  // Resetuj sve celije
   for i := 0 to High(FCellRects) do
   begin
     FCellDan[i] := 0;
@@ -254,7 +250,6 @@ begin
     FCellLbls[i].Font.Style := [];
   end;
 
-  // Popuni dane u ispravne celije
   for d := 1 to brDana do
   begin
     i := offset + (d - 1);
@@ -272,7 +267,6 @@ begin
     FCellRects[i].HitTest := True;
   end;
 
-  // Header datumi
   if KalendarDatumOd > 0 then
     lblDolazakDatum.Text := FormatDateTime('dd/mm/yyyy', KalendarDatumOd)
   else
@@ -298,7 +292,6 @@ begin
   if d = 0 then Exit;
   datum := EncodeDate(FPrikazGodina, FPrikazMesec, d);
 
-  // Logika: prvi klik = dolazak, drugi = odlazak; treci resetuje
   if (KalendarDatumOd = 0) or (KalendarDatumDo > 0) then
   begin
     KalendarDatumOd := datum;
@@ -317,7 +310,6 @@ begin
 
   RefreshKalendar;
 
-  // Kad su oba izabrana, vrati se na rezervaciju
   if (KalendarDatumOd > 0) and (KalendarDatumDo > 0) then
     TNavFrames.Back;
 end;

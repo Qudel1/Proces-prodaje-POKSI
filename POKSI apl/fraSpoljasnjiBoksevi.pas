@@ -138,7 +138,6 @@ begin
       oznaka := FLbls[i].Text;
       if JeZauzet(oznaka) then Exit;
       FSelektovan := oznaka;
-      // Spoljasnji boksevi - bez restrikcije po vrsti; primeni odmah
       IzabraniBoksText := 'Spolja' + #353 + 'nji ' + FSelektovan;
       TNavFrames.Back;
       Exit;
@@ -170,7 +169,6 @@ end;
 
 procedure TfraSpoljasnjiBoksevi.lblHomeIkonaClick(Sender: TObject);
 begin
-  // Prebaci na unutrasnje boksove (bez gomilanja stacka)
   TNavFrames.GoReplace(TfraUnutrasnjiB.Create(nil));
 end;
 
@@ -182,7 +180,6 @@ begin
     Exit;
   end;
   IzabraniBoksText := 'Spolja' + #353 + 'nji ' + FSelektovan;
-  // Vrati se direktno na rezervaciju (dva nivoa nazad ako smo dosli preko unutrasnjeg)
   TNavFrames.Back;
 end;
 

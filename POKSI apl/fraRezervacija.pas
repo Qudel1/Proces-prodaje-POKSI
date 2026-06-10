@@ -107,7 +107,6 @@ implementation
 uses
   fraKalendar, fraUnutrasnjiB, fraDodavanjeKartice, fraPredracun, fraDodatneInf;
 
-// ── Popuni ────────────────────────────────────────────────────────────────────
 
 procedure TfraRezervacija.PopuniKorisnika;
 var
@@ -115,7 +114,6 @@ var
 begin
   if LoggedUserId > 0 then
   begin
-    // Ime za prikaz: koristi pravo ime ako postoji, inace username
     if LoggedUserIme <> '' then
       prikazIme := LoggedUserIme
     else
@@ -136,7 +134,6 @@ begin
 
   lblNazivObjektaVal.Text := 'Pansion Poksi';
 
-  // Lokacija sakrivena (nije deo procesa prodaje)
   lblLokacija.Visible := False;
   rectLokacija.Visible := False;
 end;
@@ -171,8 +168,6 @@ var
   vrsta, oznaka: string;
   ok: Boolean;
 begin
-  // Proveri da li izabrani boks odgovara trenutnoj vrsti ljubimca;
-  // ako ne (npr ostao P0 od psa a sad je izabran guster), ocisti ga.
   if IzabraniBoksText <> '' then
   begin
     vrsta := '';
@@ -183,7 +178,6 @@ begin
     ok := True;
     if Pos('Unutra', IzabraniBoksText) > 0 then
     begin
-      // izvuci oznaku (P# ili M#)
       oznaka := Copy(IzabraniBoksText, Length(IzabraniBoksText) - 1, 2);
       oznaka := Trim(oznaka);
       if Length(oznaka) > 0 then
@@ -196,7 +190,6 @@ begin
           ok := False;
       end;
     end;
-    // Spoljasnji boksevi su dozvoljeni svima
     if not ok then
       IzabraniBoksText := '';
   end;
@@ -206,7 +199,6 @@ begin
   else
     lblBoksText.Text := 'Izaberi boks';
 
-  // Ljubimac se bira na pocetnom ekranu (ActivePetIndex) - ovde samo prikaz
   if (ActivePetIndex >= 0) and (ActivePetIndex <= High(Pets)) and
      (Pets[ActivePetIndex].Id <> 0) then
   begin
@@ -220,7 +212,6 @@ end;
 procedure TfraRezervacija.SelektujMetodu(const AMetoda: string);
 begin
   TfraPlacanje_OdabranaMetoda := AMetoda;
-  // Reset bordura
   rectMastercard.Stroke.Kind := TBrushKind.Solid;
   rectMastercard.Stroke.Color := $FFE0E0E0;
   rectMastercard.Stroke.Thickness := 1;
@@ -235,7 +226,6 @@ begin
   end
   else
   begin
-    // Sve kartice (Mastercard/Visa) tretiramo kao 'Kartica'
     rectMastercard.Stroke.Color := $FF1C1C2E;
     rectMastercard.Stroke.Thickness := 2;
   end;
@@ -243,10 +233,8 @@ end;
 
 procedure TfraRezervacija.PopuniPlacanje;
 begin
-  // Sakrij Visa opciju - imamo samo "Kartica" i "Kes"
   rectVisa.Visible := False;
 
-  // Kartica: ako je dodata, prikazi maskirani kraj broja
   if KarticaBroj <> '' then
     lblMastercardText.Text := 'Kartica koja se zavr' + #353 + 'ava na ' + CardEnding(KarticaBroj)
   else
@@ -254,7 +242,6 @@ begin
 
   lblKesText.Text := 'Ke' + #353;
 
-  // Normalizuj metodu: sve sto nije Kes tretiramo kao Kartica
   if TfraPlacanje_OdabranaMetoda <> 'Kes' then
     TfraPlacanje_OdabranaMetoda := 'Kartica';
 
@@ -276,7 +263,6 @@ begin
   lblMedjutimText.Text := 'Me' + #273 + 'uzbir';
   lblMedjutimVal.Text  := '$' + FormatFloat('0.00', Osnova);
 
-  // Red "Naziv" pretvaramo u red "Popust"
   if Assigned(layoutNaziv) then
     layoutNaziv.Visible := True;
   if Assigned(lblNazivText) then
@@ -285,7 +271,6 @@ begin
     lblNazivText.TextSettings.FontColor := $FF555555;
   end;
 
-  // Vrednost popusta - kreiramo/azuriramo labelu desno u istom redu
   if not Assigned(FLblPopustVal) then
   begin
     FLblPopustVal := TLabel.Create(Self);
@@ -315,7 +300,6 @@ begin
   PopuniIznose;
 end;
 
-// ── Loaded / FrameEnter ───────────────────────────────────────────────────────
 
 procedure TfraRezervacija.Loaded;
 begin
@@ -328,7 +312,6 @@ begin
   PopuniSve;
 end;
 
-// ── Events ────────────────────────────────────────────────────────────────────
 
 procedure TfraRezervacija.btnZatvoriClick(Sender: TObject);
 begin
@@ -352,13 +335,11 @@ end;
 
 procedure TfraRezervacija.rectOdaberiClick(Sender: TObject);
 begin
-  // Izmena licnih podataka - postojeci frame sa edit poljima
   TNavFrames.Go(TfraDodatneInf.Create(nil));
 end;
 
 procedure TfraRezervacija.rectLjubimciClick(Sender: TObject);
 begin
-  // Ljubimac se bira na pocetnom ekranu rezervacije.
   if (ActivePetIndex >= 0) and (ActivePetIndex <= High(Pets)) and
      (Pets[ActivePetIndex].Id <> 0) then
     ShowMessage('Ljubimac se menja na po' + #269 + 'etnom ekranu rezervacije.')
@@ -368,7 +349,6 @@ end;
 
 procedure TfraRezervacija.rectMastercardClick(Sender: TObject);
 begin
-  // Ako je kartica vec izabrana, drugi klik otvara izmenu kartice
   if TfraPlacanje_OdabranaMetoda = 'Kartica' then
     TNavFrames.Go(TfraDodavanjeKartice.Create(nil))
   else
@@ -387,13 +367,11 @@ end;
 
 procedure TfraRezervacija.lblPlacanjePromeniClick(Sender: TObject);
 begin
-  // Idi na dodavanje/izmenu kartice
   TNavFrames.Go(TfraDodavanjeKartice.Create(nil));
 end;
 
 procedure TfraRezervacija.btnPlatiClick(Sender: TObject);
 begin
-  // Validacija
   if KalendarDatumOd = 0 then
   begin
     ShowMessage('Izaberite datum dolaska.');
@@ -411,7 +389,6 @@ begin
     Exit;
   end;
 
-  // Idi na predracun
   TNavFrames.Go(TfraPredracun.Create(nil));
 end;
 

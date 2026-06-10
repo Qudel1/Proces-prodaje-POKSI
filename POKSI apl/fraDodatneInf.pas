@@ -59,7 +59,6 @@ procedure TfraDodatneInf.PopuniPodatke;
 begin
   if LoggedUserId = 0 then
   begin
-    // Nema ulogovanog korisnika — prazna forma
     if Assigned(Edit1) then Edit1.Text := '';
     if Assigned(Edit2) then Edit2.Text := '';
     if Assigned(Edit3) then Edit3.Text := '';
@@ -71,16 +70,12 @@ begin
     Exit;
   end;
 
-  // Edit polja za izmenu
-  // Edit1 = Username/Ime, Edit2 = Prezime (ako postoji), Edit3 = Adresa
-  // Edit5 = Email, Edit6 = Telefon
   if Assigned(Edit1) then Edit1.Text := LoggedUserIme;
   if Assigned(Edit2) then Edit2.Text := LoggedUserPrezime;
   if Assigned(Edit3) then Edit3.Text := LoggedUserAdresa;
   if Assigned(Edit5) then Edit5.Text := LoggedUserEmail;
   if Assigned(Edit6) then Edit6.Text := LoggedUserPhone;
 
-  // Read-only labele
   lblIDVal.Text    := LoggedUserId.ToString;
   lblEmailVal.Text := LoggedUserEmail;
   lblPhoneVal.Text := LoggedUserPhone;
@@ -95,8 +90,6 @@ begin
   Q := TFDQuery.Create(nil);
   try
     Q.Connection := DB;
-    // Username se NIKAD ne menja ovde (jedinstven, koristi se za login).
-    // Ime/prezime/adresa/email/telefon se cuvaju.
     Q.SQL.Text :=
       'UPDATE users SET ime = :im, email = :e, phone = :p, ' +
       'prezime = :pr, adresa = :ad WHERE id = :id';
@@ -108,7 +101,6 @@ begin
     Q.ParamByName('id').AsInteger := LoggedUserId;
     Q.ExecSQL;
 
-    // Ažuriraj store (username ostaje netaknut!)
     LoggedUserIme     := Edit1.Text;
     LoggedUserEmail   := Edit5.Text;
     LoggedUserPhone   := Edit6.Text;

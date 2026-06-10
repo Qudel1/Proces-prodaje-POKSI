@@ -9,9 +9,7 @@ uses
 type
   TForm3 = class(TForm)
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var

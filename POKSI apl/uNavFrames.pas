@@ -101,16 +101,12 @@ end;
 
 class procedure TNavFrames.GoReplace(ANext: TFrame);
 begin
-  // Zameni trenutni frame BEZ guranja na stack (npr. prebacivanje
-  // izmedju unutrasnjih i spoljasnjih bokseva). Nazad tako vodi
-  // direktno na ekran sa kog smo dosli (rezervacija).
   if (FHost = nil) or (ANext = nil) then Exit;
 
   if FCurrent <> nil then
   begin
     FCurrent.Visible := False;
     FCurrent.Parent := nil;
-    // NE radimo FStack.Push
   end;
 
   FCurrent := ANext;
@@ -162,7 +158,6 @@ begin
   FCurrent.Visible := True;
   FCurrent.BringToFront;
 
-  // Osvezi ekran na koji se vracamo (boks, datumi, licni podaci...)
   if Assigned(FCurrent.OnEnter) then
     FCurrent.OnEnter(FCurrent);
 end;

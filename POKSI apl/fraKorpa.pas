@@ -48,7 +48,6 @@ implementation
 uses
   fraRezervacija;
 
-// ── Build helpers ─────────────────────────────────────────────────────────────
 
 function NewLabel(AParent: TFmxObject; const ATxt: string;
   ASz: Single; ABold: Boolean; AClr: TAlphaColor): TLabel;
@@ -89,7 +88,6 @@ begin
   Result.Height := AH;
 end;
 
-// ── BuildRow ──────────────────────────────────────────────────────────────────
 
 procedure TfraKorpa.BuildRow(AIdx: Integer);
 var
@@ -149,7 +147,6 @@ begin
   FRowBtnP[AIdx] := BP;
 end;
 
-// ── BuildUI ───────────────────────────────────────────────────────────────────
 
 procedure TfraKorpa.BuildUI;
 var
@@ -166,34 +163,29 @@ begin
   Root.Parent := Self;
   Root.Align := TAlignLayout.Client;
 
-  // ── Header ──
   LayH := NewLayout(Root, 390, 60);
   LayH.Align := TAlignLayout.Top;
   LayH.Padding.Left := 16;
   LayH.Padding.Right := 16;
   LayH.Padding.Top := 12;
 
-  // Dugme Nazad (levo)
   Btn := TButton.Create(Self);
   Btn.Parent := LayH;
   Btn.Align := TAlignLayout.Left;
   Btn.Width := 40;
-  Btn.Text := #10094;  // ‹ strelica nazad
+  Btn.Text := #10094;
   Btn.Font.Size := 18;
   Btn.OnClick := btnNazadClick;
 
-  // Broj stavki (desno)
   FLblStavke := NewLabel(LayH, '0 stavki', 14, False, $FFFFC107);
   FLblStavke.Align := TAlignLayout.Right;
   FLblStavke.TextSettings.HorzAlign := TTextAlign.Trailing;
 
-  // Naslov korpe (centriran, popunjava preostali prostor)
   LH := NewLabel(LayH, 'Korpa', 20, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Client;
   LH.AutoSize := False;
   LH.TextSettings.HorzAlign := TTextAlign.Center;
 
-  // ── Footer ──
   LayFoot := NewLayout(Root, 390, 80);
   LayFoot.Align := TAlignLayout.Bottom;
   LayFoot.Padding.Left := 16;
@@ -210,7 +202,6 @@ begin
   Btn.FontColor := TAlphaColors.White;
   Btn.OnClick := btnNastaviClick;
 
-  // ── Scroll ──
   FVertScroll := TVertScrollBox.Create(Self);
   FVertScroll.Parent := Root;
   FVertScroll.Align := TAlignLayout.Client;
@@ -219,25 +210,21 @@ begin
   FVertScroll.Padding.Bottom := 8;
   FVertScroll.ShowScrollBars := False;
 
-  // Smestaj header
   LH := NewLabel(FVertScroll, 'Sme' + #353 + 'taj', 16, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Top;
   LH.Height := 32;
   LH.Margins.Top := 8;
   LH.AutoSize := False;
 
-  // Usluge header
   LH := NewLabel(FVertScroll, 'Usluge', 16, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Top;
   LH.Height := 32;
   LH.Margins.Top := 12;
   LH.AutoSize := False;
 
-  // Dinamicki redovi
   for i := 0 to 5 do
     BuildRow(i);
 
-  // Promo
   LH := NewLabel(FVertScroll, 'Promo kod', 16, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Top;
   LH.Height := 32;
@@ -262,14 +249,12 @@ begin
   FLblPromoPopust.Margins.Right := 12;
   FLblPromoPopust.TextSettings.HorzAlign := TTextAlign.Trailing;
 
-  // Pregled iznosa
   LH := NewLabel(FVertScroll, 'Pregled iznosa', 16, True, TAlphaColors.Black);
   LH.Align := TAlignLayout.Top;
   LH.Height := 32;
   LH.Margins.Top := 12;
   LH.AutoSize := False;
 
-  // Direktno gradimo iznos redove
   LayRow := NewLayout(FVertScroll, 358, 26);
   LayRow.Align := TAlignLayout.Top;
   LayRow.Margins.Top := 3;
@@ -310,14 +295,12 @@ begin
   RefreshKorpa;
 end;
 
-// ── Refresh ───────────────────────────────────────────────────────────────────
 
 procedure TfraKorpa.RefreshIznosi;
 var
   Osnova, Popust, Procenat, Ukupno: Double;
   n: Integer;
 begin
-  // Sinhronizuj globalni promo kod da rezervacija koristi isti
   PromoKod := FEditPromo.Text;
 
   Osnova := KorpaUkupno;
@@ -355,14 +338,12 @@ begin
   for i := 0 to High(KorpaItems) do
   begin
     if r > 5 then Break;
-    // Preskoci prazne slotove
     if KorpaItems[i].ServiceId = 0 then Continue;
 
     FRowRect[r].Visible  := True;
     FRowNaz[r].Text      := KorpaItems[i].Naziv;
     FRowCena[r].Text     := '$' + FormatFloat('0.##', KorpaItems[i].Cena * KorpaItems[i].Kolicina);
     FRowKol[r].Text      := KorpaItems[i].Kolicina.ToString;
-    // Tag = stvarni index u KorpaItems (ne r)
     FRowBtnM[r].Tag      := i;
     FRowBtnP[r].Tag      := i;
     Inc(r);
@@ -371,7 +352,6 @@ begin
   RefreshIznosi;
 end;
 
-// ── Events ────────────────────────────────────────────────────────────────────
 
 procedure TfraKorpa.FrameEnter(Sender: TObject);
 begin

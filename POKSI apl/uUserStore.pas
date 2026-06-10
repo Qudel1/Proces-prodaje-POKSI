@@ -7,14 +7,14 @@ uses
   FireDAC.Comp.Client, uPetModel;
 
 type
-  // Jedna stavka usluge na racunu
+
   TRacunStavka = record
     Naziv:    string;
     Kolicina: Integer;
-    Cena:     Double;   // ukupno za tu stavku (cena * kolicina)
+    Cena:     Double;
   end;
 
-  // Kompletan sacuvan racun (za istoriju u okviru sesije)
+
   TSesijaRacun = record
     BrojRacuna:  string;
     Datum:       string;
@@ -24,8 +24,8 @@ type
     DatumOd:     TDateTime;
     DatumDo:     TDateTime;
     Noci:        Integer;
-    Smestaj:     Double;   // smestaj + obroci
-    UslugeIznos: Double;   // zbir usluga
+    Smestaj:     Double;
+    UslugeIznos: Double;
     Popust:      Double;
     Porez:       Double;
     Ukupno:      Double;
@@ -44,7 +44,7 @@ var
   LoggedUserPhone:   string;
   LoggedUserPrezime: string;
   LoggedUserAdresa:  string;
-  LoggedUserIme:     string;   // Ime (odvojeno od username-a!)
+  LoggedUserIme:     string;
 
   AktivnaKorpaId: Integer = 0;
   AktivnaRezervacijaId: Integer = 0;
@@ -56,20 +56,19 @@ var
   IzabraniSpoljasId: Integer = 0;
   TfraPlacanje_OdabranaMetoda: string = 'Kartica';
 
-  // Izabrani boks (tekst za prikaz, npr "Unutrasnji P7")
   IzabraniBoksText: string = '';
-  // Boksevi zauzeti u OVOJ sesiji (da se ne moze isti dva puta)
+
   SesijaZauzetiBoks: array of string;
-  // Izabrani ljubimac za rezervaciju
+
   RezervacijaPetIndex: Integer = -1;
-  // Sacuvana kartica
+
   KarticaBroj: string = '';
-  KarticaTip: string = '';   // Mastercard / Visa
+  KarticaTip: string = '';
   PromoKod: string = '';
 
-  // Istorija racuna - SAMO za trenutnu sesiju (brise se pri loginu)
+
   SesijaRacuni: array of TSesijaRacun;
-  // Broj racuna koji se trenutno gleda (za fiskalni racun ekran)
+
   AktivniRacunBroj: string = '';
 
 

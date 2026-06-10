@@ -34,9 +34,7 @@ type
     lblVisaText: TLabel;
     rbVisa: TRadioButton;
   private
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 implementation
